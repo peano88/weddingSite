@@ -32,6 +32,7 @@ function init() {
     
     var addresses = ['Brooklyn'];
 
+    /*
     for (var x = 0; x < addresses.length; x++) {
         $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
             var p = data.results[0].geometry.location
@@ -44,6 +45,7 @@ function init() {
 
         });
     }
+    */
     
 }
 google.maps.event.addDomListener(window, 'load', init);

@@ -5,7 +5,8 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var notify = require('gulp-notify');
-var minifycss = require('gulp-minify-css');
+//var minifycss = require('gulp-minify-css');
+var cleanCss = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var plumber = require('gulp-plumber');
 var browserSync = require('browser-sync');
@@ -70,7 +71,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('css'))
 
     .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
+    .pipe(cleanCss())
     .pipe(gulp.dest('css'))
     /* Reload the browser CSS after every change */
     .pipe(reload({stream:true}));
