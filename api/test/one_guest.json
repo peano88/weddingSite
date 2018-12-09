@@ -1,0 +1,11 @@
+{
+  "id" : "",
+  "name" : "Stephene",
+  "family_name": "Dedalus",
+  "user_name": "Telemachus",
+  "country": "Ireland",
+  "language": "EN",
+  "coming_with": "Buck Mulligan",
+  "confirmed" : true,
+  "needs_accomodation": true
+}
