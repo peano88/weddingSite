@@ -85,7 +85,7 @@
 	    autoplay: true,
 	    autoplayTimeout:2000,
 	    autoplayHoverPause:true,
-			navText: [	
+			navText: [
 				"<i class='icon-chevron-thin-left'></i>",
 				"<i class='icon-chevron-thin-right'></i>"
 			],
@@ -141,7 +141,7 @@
 		$('.probootstrap-animate').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('probootstrap-animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -163,9 +163,9 @@
 							el.removeClass('item-animate');
 						},  k * 30, 'easeInOutExpo' );
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -200,9 +200,9 @@
 		});
 	};
 
-	
-	
-	
+
+
+
 	var stellarInit = function() {
 		if( !isMobile.any() ) {
 			$(window).stellar();
@@ -248,7 +248,7 @@
 	var navigationSection = function() {
 
 		var $section = $('section[data-section]');
-		
+
 		$section.waypoint(function(direction) {
 		  	if (direction === 'down') {
 		    	navActive($(this.element).data('section'));
@@ -332,7 +332,43 @@
       fixedContentPos: false
     });
 	};
+	// Copied from https://codepen.io/gabrieleromanato/pen/LpLVeQ
 
+	function toJSONString(form) {
+	    var obj = {};
+	    var elements = form.querySelectorAll("input, select, textarea");
+	    for (var i = 0; i < elements.length; ++i) {
+	      var element = elements[i];
+	      var name = element.id;
+	      var value = element.value;
+
+	      if (name) {
+	        obj[name] = value;
+	      }
+	    }
+
+	    return JSON.stringify(obj);
+	  };
+
+	var submitGuestRsvp = function(){
+		// using jQuery because it is used everywhere else in this template
+	    var form = $("#guest_rsvp");
+			$(form).submit(function(event) {
+				event.preventDefault();
+	      var json = toJSONString(this);
+				console.log("Sending");
+				$.ajax({
+					type: 'POST',
+					url: 'http://testSendingPeano',
+					data: json
+				}).done(function(response) {
+					console.log(response);
+				})
+
+			});
+	  };
+
+	  document.addEventListener("DOMContentLoaded", submitGuestRsvp);
 
 
 	$(function(){

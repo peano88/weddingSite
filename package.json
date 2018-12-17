@@ -11,5 +11,6 @@
     "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",
     "gulp-uglify": "latest"
-  }
+  },
+  "dependencies": {}
 }
