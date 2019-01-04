@@ -26,7 +26,7 @@ func logErr(err error) {
 
 func init() {
 	var err error
-	session, err = mgo.Dial("0.0.0.0")
+	session, err = mgo.Dial("db-api")
 
 	logErr(err)
 
@@ -45,7 +45,7 @@ func main() {
 	handler := cors.Default().Handler(r)
 
 	srv := &http.Server{
-		Addr: "localhost:5000",
+		Addr: "0.0.0.0:5000", // for outside container communication
 		// Good practice to set timeouts to avoid Slowloris attacks.
 		WriteTimeout: time.Second * 15,
 		ReadTimeout:  time.Second * 15,

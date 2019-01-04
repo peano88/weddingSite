@@ -359,7 +359,7 @@
 				console.log("Sending");
 				$.ajax({
 					type: 'POST',
-					url: 'http://testSendingPeano',
+					url: "api/guests", // reverse proxy from nginx
 					data: json
 				}).done(function(response) {
 					console.log(response);

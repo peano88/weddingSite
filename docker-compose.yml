@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    volumes:
+      - ${PWD}/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8090:8090"
+
+  api:
+    build: ./api/v1
+    expose:
+      - "5000"
+
+  db-api:
+    build: ./api
+    ports:
+      - "27017:27017"
