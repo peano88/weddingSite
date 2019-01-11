@@ -11,17 +11,19 @@ import (
 	"github.com/thedevsaddam/renderer"
 )
 
+//HandlerBridge is the struct used to provide the http.Handler
 type HandlerBridge struct {
 	db  DataBridge
 	rnd *renderer.Render
 }
 
+//Init : initialize the handlerBridge
 func (hb *HandlerBridge) Init(d DataBridge) {
 	hb.db = d
 	hb.rnd = renderer.New()
 }
 
-// Add a guest; return the provided guest with the created id
+// AddGuest return the provided created guest with the created id
 func (hb *HandlerBridge) AddGuest(w http.ResponseWriter, r *http.Request) {
 	log.Printf("i'm in")
 	var g Guest
@@ -74,7 +76,7 @@ func (hb *HandlerBridge) ModifyGuest(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// Look up for a guest: use the username as parameter
+//GetGuestByUsername Look up for a guest: use the username as parameter
 func (hb *HandlerBridge) GetGuestByUsername(w http.ResponseWriter, r *http.Request) {
 	un, ok := mux.Vars(r)["user_name"]
 
