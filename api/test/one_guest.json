@@ -1,11 +1,11 @@
 {
   "id" : "",
-  "name" : "Stephene",
-  "family_name": "Dedalus",
+  "invitees": "Stephen & Buck",
   "user_name": "Telemachus",
   "country": "Ireland",
   "language": "EN",
-  "coming_with": "Buck Mulligan",
+  "modification": "Buck not coming",
   "confirmed" : true,
-  "needs_accomodation": true
+  "needs_accomodation": true,
+  "food_requirements": "Stephen is vegetarian"
 }

@@ -11,14 +11,14 @@ import (
 //personally invited guest
 type Guest struct {
 	ID                bson.ObjectId `json:"id" bson:"_id"`
-	Name              string        `json:"name" bson:"name"`
-	FamilyName        string        `json:"family_name" bson:"family_name"`
+	Invitees          string        `json:"invitees" bson:"invitees"`
 	UserName          string        `json:"user_name" bson:"user_name"`
 	Country           string        `json:"country" bson:"country"`
 	Language          string        `json:"language" bson:"language"`
-	ComingWith        string        `json:"coming_with" bson:"coming_with"`
+	Modification      string        `json:"modification" bson:"modification"`
 	Confirmed         bool          `json:"confirmed" bson:"confirmed"`
 	NeedsAccomodation bool          `json:"needs_accomodation" bson:"needs_accomodation"`
+	FoodRequirements  string        `json:"food_requirements" bson:"food_requirements"`
 }
 
 const (
@@ -72,9 +72,10 @@ func (db *DataBridge) ReadGuest(m bson.M) (Guest, error) {
 func (db *DataBridge) UpdateGuest(g *Guest) error {
 	// CHange only certain preselected attributes
 	return db.GuestColl.UpdateId(g.ID, bson.M{"$set": bson.M{
-		"coming_with":        g.ComingWith,
+		"modification":       g.Modification,
 		"confirmed":          g.Confirmed,
 		"needs_accomodation": g.NeedsAccomodation,
+		"food_requirements":  g.FoodRequirements,
 	}})
 }
 

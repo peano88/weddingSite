@@ -48,7 +48,8 @@ func testCreate(t *testing.T, provided *Guest) {
 	// Check that the stored and the provided are aligned
 	assert.Equal(provided.Confirmed, g.Confirmed, "check confirmed")
 	assert.Equal(provided.NeedsAccomodation, g.NeedsAccomodation, "check accomodation")
-	assert.Equal(provided.ComingWith, g.ComingWith, "check coming")
+	assert.Equal(provided.Modification, g.Modification, "check modification")
+	assert.Equal(provided.FoodRequirements, g.FoodRequirements, "check food requirements")
 }
 
 func testRead(t *testing.T, provided *Guest) {
@@ -66,11 +67,11 @@ func testRead(t *testing.T, provided *Guest) {
 	json.NewDecoder(rr.Body).Decode(&g)
 
 	// Check equality (Not the ID since it is not known at this time)
-	assert.Equal(provided.Name, g.Name, "wrong name")
-	assert.Equal(provided.FamilyName, g.FamilyName, "wrong family name")
+	assert.Equal(provided.Invitees, g.Invitees, "wrong invitees")
+	assert.Equal(provided.FoodRequirements, g.FoodRequirements, "wrong food requirements")
 	assert.Equal(provided.Language, g.Language, "wrong language")
 	assert.Equal(provided.Country, g.Country, "wrong country")
-	assert.Equal(provided.ComingWith, g.ComingWith, "wrong coming with")
+	assert.Equal(provided.Modification, g.Modification, "wrong modification")
 	assert.Equal(provided.Confirmed, g.Confirmed, "wrong confirmed")
 	assert.Equal(provided.NeedsAccomodation, g.NeedsAccomodation, "wrong needsAccomodation")
 
@@ -86,8 +87,9 @@ func testUpdate(t *testing.T, provided *Guest) {
 
 	//Change the guest attributes
 	stored.Confirmed = false
-	stored.ComingWith = "Mum"
+	stored.Modification = "Mum is coming"
 	stored.NeedsAccomodation = false
+	stored.FoodRequirements = "Mum is vegetarian"
 
 	// Create the PUT request
 	buf := new(bytes.Buffer)
