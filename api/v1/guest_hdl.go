@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"gopkg.in/mgo.v2/bson"
@@ -22,16 +23,18 @@ func (hb *HandlerBridge) Init(d DataBridge) {
 
 // Add a guest; return the provided guest with the created id
 func (hb *HandlerBridge) AddGuest(w http.ResponseWriter, r *http.Request) {
+	log.Printf("i'm in")
 	var g Guest
 	defer r.Body.Close()
 
 	if err := json.NewDecoder(r.Body).Decode(&g); err != nil {
-		hb.rnd.JSON(w, http.StatusBadRequest, err.Error)
+		log.Print(err.Error())
+		hb.rnd.JSON(w, http.StatusBadRequest, err.Error())
 		return
 	}
 
 	if err := hb.db.CreateGuest(&g); err != nil {
-		hb.rnd.JSON(w, http.StatusInternalServerError, err.Error)
+		hb.rnd.JSON(w, http.StatusInternalServerError, err.Error())
 		return
 	}
 
@@ -41,6 +44,7 @@ func (hb *HandlerBridge) AddGuest(w http.ResponseWriter, r *http.Request) {
 
 //ModifyGuest Updates a guest; very similar to the create method
 func (hb *HandlerBridge) ModifyGuest(w http.ResponseWriter, r *http.Request) {
+	log.Printf("i'm in")
 	id, ok := mux.Vars(r)["id"]
 
 	if !ok {
@@ -52,7 +56,7 @@ func (hb *HandlerBridge) ModifyGuest(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
 
 	if err := json.NewDecoder(r.Body).Decode(&g); err != nil {
-		hb.rnd.JSON(w, http.StatusBadRequest, err.Error)
+		hb.rnd.JSON(w, http.StatusBadRequest, err.Error())
 		return
 	}
 
@@ -62,7 +66,7 @@ func (hb *HandlerBridge) ModifyGuest(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := hb.db.UpdateGuest(&g); err != nil {
-		hb.rnd.JSON(w, http.StatusInternalServerError, err.Error)
+		hb.rnd.JSON(w, http.StatusInternalServerError, err.Error())
 		return
 	}
 
@@ -84,7 +88,7 @@ func (hb *HandlerBridge) GetGuestByUsername(w http.ResponseWriter, r *http.Reque
 	g, err = hb.db.ReadGuest(bson.M{"user_name": un})
 
 	if err != nil {
-		hb.rnd.JSON(w, http.StatusBadRequest, err.Error)
+		hb.rnd.JSON(w, http.StatusBadRequest, err.Error())
 		return
 	}
 

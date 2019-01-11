@@ -340,7 +340,7 @@
 	    for (var i = 0; i < elements.length; ++i) {
 	      var element = elements[i];
 	      var name = element.id;
-	      var value = element.value;
+	      var value = value == "on"? "true" : element.value;
 
 	      if (name) {
 	        obj[name] = value;
@@ -359,7 +359,8 @@
 				console.log("Sending");
 				$.ajax({
 					type: 'POST',
-					url: "api/guests", // reverse proxy from nginx
+					//dataType: 'jsonp',
+					url: "http://localhost:8090/api/guests", // reverse proxy from nginx
 					data: json
 				}).done(function(response) {
 					console.log(response);
