@@ -332,20 +332,38 @@
       fixedContentPos: false
     });
 	};
-	// Copied from https://codepen.io/gabrieleromanato/pen/LpLVeQ
+
+	function checkboxToBool(id) {
+		if ($("#"+id).is(':checked')) {
+			return true
+		}
+		else {
+			return false
+		}
+	}
+
+	var toggleAuth = function() {
+		//check local storage
+		if (!localStorage.getItem('user_name_ls')) {
+			console.log("toggle rsvp")
+			$('#rsvp').toggle()
+		} else {
+			$('#rsvp').toggle()
+		}
+	}
 
 	function toJSONString(form) {
 	    var obj = {};
-	    var elements = form.querySelectorAll("input, select, textarea");
-	    for (var i = 0; i < elements.length; ++i) {
-	      var element = elements[i];
-	      var name = element.id;
-	      var value = value == "on"? "true" : element.value;
+			//Values obtained by the form
+			obj["invitees"] = $("#invitees").val()
+			obj["modification"] = $("#modification").val()
+			obj["food_requirements"] = $("#food-requirements").val()
+			obj["needs_accomodation"] = checkboxToBool("needs_accomodation")
+			obj["confirmed"] = checkboxToBool("presence-yes")
 
-	      if (name) {
-	        obj[name] = value;
-	      }
-	    }
+			//Values stored in the local storage
+			obj["user_name"] = localStorage.getItem('user_name')
+
 
 	    return JSON.stringify(obj);
 	  };
@@ -384,6 +402,11 @@
 
 	$(window).load(function(){
 		flexSlider();
+	});
+
+	$(window).ready(function(){
+		console.log("ready")
+		toggleAuth();
 	});
 
 })();

@@ -39,7 +39,6 @@
             <li><a href="#" data-nav-section="when-where">When &amp; Where</a></li>
             <li><a href="#" data-nav-section="gallery">Gallery</a></li>
             <li><a href="#" data-nav-section="rsvp">RSVP</a></li>
-            <li><a href="#" data-nav-section="sez-samu">Sezione di Samu</a></li>
           </ul>
         </div>
       </div>
@@ -230,7 +229,36 @@
       </div>
     </section>
 
-    <section class="probootstrap-section probootstrap-border-top" data-section="rsvp">
+    <section id="auth" class="probootstrap-section probootstrap-section-colored" data-section="auth">
+      <div class="container">
+        <div class="row mb40">
+          <div class="col-md-12 text-center">
+            <h2 class="mt0 mb10 probootstrap-animate">Log In</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="probootstrap-card probootstrap-animate">
+              <form class="probootstrap-form" id="login">
+                <div class="form-group">
+                  <label for="user_name_auth">User name</label>
+                  <input type="text" class="form-control" id="user_name_auth">
+                </div>
+                <div class="form-group">
+                  <label for="password_auth">Password</label>
+                  <input type="password" class="form-control" id="user_name_auth">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary btn-lg" value="Log In">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rsvp" class="probootstrap-section probootstrap-border-top" data-section="rsvp">
       <div class="container">
         <div class="row mb40">
           <div class="col-md-12 text-center">
@@ -243,29 +271,23 @@
             <div class="probootstrap-card probootstrap-animate">
               <form class="probootstrap-form" id="guest_rsvp">
                 <div class="form-group">
-                  <label for="name">Your Name</label>
-                  <input type="text" class="form-control" id="name">
+                  <label for="invitees">Invitee(s)</label>
+                  <input type="text" class="form-control" id="invitees">
+                <div class="form-group">
+                  <p>Confirm Presence?</p>
+                  <label for="presence-yes"><input type="checkbox" id="presence-yes"> Yes, I will be there</label>
                 </div>
                 <div class="form-group">
-                  <label for="email">Your Email</label>
-                  <input type="text" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                  <p>Will you attend?</p>
-                  <label for="yes"><input type="checkbox" id="yes"> Yes, I will be there</label> <br>
-                  <label for="no"><input type="checkbox" id="no"> Sorry, I can't come</label> <br>
+                  <label for="modification">Modifications</label>
+                  <input type="textarea" class="form-control" id="modification">
                 </div>
                 <div class="form-group">
                   <laber for="needs_accomodation">Need accomodation</label>
                     <input type="checkbox" id="needs_accomodation">
                 </div>
                 <div class="form-group">
-                  <laber for="confirmed">Presence confirmed</label>
-                    <input type="checkbox" id="confirmed">
-                </div>
-                <div class="form-group">
-                  <label for="coming_with">Please specify other attendee</label>
-                  <textarea name="coming_with" id="coming_with" cols="20" rows="5" class="form-control"></textarea>
+                  <laber for="food-requirements">Food requirements</label>
+                    <textarea name="food-requirements" id="food-requirements" cols="20" rows="2" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                   <input type="submit" class="btn btn-primary btn-lg" value="Send RSVP">
