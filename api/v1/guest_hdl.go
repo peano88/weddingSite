@@ -11,6 +11,12 @@ import (
 	"github.com/thedevsaddam/renderer"
 )
 
+//UserAuth is a utility Structure to contain basic auth information
+type UserAuth struct {
+	UserName string `json:"user_name"`
+	Password string `json:"password"`
+}
+
 //HandlerBridge is the struct used to provide the http.Handler
 type HandlerBridge struct {
 	db  DataBridge
@@ -93,6 +99,26 @@ func (hb *HandlerBridge) GetGuestByUsername(w http.ResponseWriter, r *http.Reque
 		hb.rnd.JSON(w, http.StatusBadRequest, err.Error())
 		return
 	}
-
+	// Clear password
+	g.Password = ""
 	hb.rnd.JSON(w, http.StatusOK, g)
+}
+
+//AuthorizeGuest is used to give authorization to a guest
+func (hb *HandlerBridge) AuthorizeGuest(w http.ResponseWriter, r *http.Request) {
+	var u UserAuth
+	defer r.Body.Close()
+
+	if err := json.NewDecoder(r.Body).Decode(&u); err != nil {
+		hb.rnd.JSON(w, http.StatusBadRequest, err.Error())
+		return
+	}
+
+	usID := hb.db.AuthGuest(u.UserName, u.Password)
+
+	if usID.UserName == "" {
+		hb.rnd.JSON(w, http.StatusBadRequest, "Not authorized")
+	}
+
+	hb.rnd.JSON(w, http.StatusOK, usID)
 }

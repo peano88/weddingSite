@@ -77,6 +77,53 @@ func testRead(t *testing.T, provided *Guest) {
 
 }
 
+func testAuth(t *testing.T, provided *Guest) {
+	// Test a bad password
+	u := UserAuth{
+		UserName: provided.UserName,
+		Password: "wrongPassword",
+	}
+
+	// Create the PUT request
+	buf := new(bytes.Buffer)
+	if err := json.NewEncoder(buf).Encode(&u); err != nil {
+		t.Fatalf("Test auth encode error : %s", err.Error())
+	}
+	req, _ := http.NewRequest("POST", "/auth", buf)
+	rr := httptest.NewRecorder()
+	r.ServeHTTP(rr, req)
+
+	assert := assert.New(t)
+	// Check status of the response
+	assert.Equal(http.StatusBadRequest, rr.Code, "check status")
+
+	//test the good password
+	u.Password = provided.Password
+	buf = new(bytes.Buffer)
+	if err := json.NewEncoder(buf).Encode(&u); err != nil {
+		t.Fatalf("Test auth 1 encode error : %s", err.Error())
+	}
+
+	req, _ = http.NewRequest("POST", "/auth", buf)
+	rr = httptest.NewRecorder()
+	r.ServeHTTP(rr, req)
+
+	// Check status of the response
+	assert.Equal(http.StatusOK, rr.Code, "check ok status")
+
+	var usID UserIdentification
+	json.NewDecoder(rr.Body).Decode(&usID)
+
+	assert.Equal(usID.UserName, provided.UserName, "check equality of UserName")
+
+	//Retrieve the guest from the db to get the correct Id
+	var g Guest
+	db.GuestColl.Find(bson.M{"user_name": provided.UserName}).One(&g)
+
+	assert.Equal(g.ID.Hex(), usID.ID, "check equality of ID")
+
+}
+
 func testUpdate(t *testing.T, provided *Guest) {
 	// Fetch the guest from db
 	stored, err := db.ReadGuest(bson.M{"user_name": provided.UserName})
@@ -138,6 +185,7 @@ func TestMain(t *testing.T) {
 
 	// Run the Subtests
 	t.Run("test_create", createSubTest(&g, testCreate))
+	t.Run("test_auth", createSubTest(&g, testAuth))
 	t.Run("test_read", createSubTest(&g, testRead))
 	t.Run("test_update", createSubTest(&g, testUpdate))
 

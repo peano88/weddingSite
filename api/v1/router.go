@@ -38,6 +38,12 @@ var routes = Routes{
 		Pattern:     "/guests/{id}",
 		HandlerFunc: hb.ModifyGuest,
 	},
+	Route{
+		Name:        "AuthGuest",
+		Method:      "POST",
+		Pattern:     "/auth",
+		HandlerFunc: hb.AuthorizeGuest,
+	},
 }
 
 //NewRouter configures a new router to the API
