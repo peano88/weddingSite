@@ -2,31 +2,31 @@
 	'use strict';
 
 	/*----------------------------------------
-		Detect Mobile
+	Detect Mobile
 	----------------------------------------*/
 	var isMobile = {
 		Android: function() {
 			return navigator.userAgent.match(/Android/i);
 		},
-			BlackBerry: function() {
+		BlackBerry: function() {
 			return navigator.userAgent.match(/BlackBerry/i);
 		},
-			iOS: function() {
+		iOS: function() {
 			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
 		},
-			Opera: function() {
+		Opera: function() {
 			return navigator.userAgent.match(/Opera Mini/i);
 		},
-			Windows: function() {
+		Windows: function() {
 			return navigator.userAgent.match(/IEMobile/i);
 		},
-			any: function() {
+		any: function() {
 			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 		}
 	};
 
 	/*----------------------------------------
-		Carousel
+	Carousel
 	----------------------------------------*/
 	var owlCarousel = function(){
 
@@ -40,20 +40,20 @@
 			smartSpeed: 800,
 			autoHeight: true,
 			navText: [
-		      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
-		      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
-	     	],
-	     	responsive:{
-	        0:{
-	            items:1
-	        },
-	        600:{
-	            items:2
-	        },
-	        1000:{
-	            items:3
-	        }
-	    	}
+				"<i class='icon-keyboard_arrow_left owl-direction'></i>",
+				"<i class='icon-keyboard_arrow_right owl-direction'></i>"
+			],
+			responsive:{
+				0:{
+					items:1
+				},
+				600:{
+					items:2
+				},
+				1000:{
+					items:3
+				}
+			}
 		});
 
 		var owl = $('.owl-carousel-fullwidth');
@@ -67,9 +67,9 @@
 			autoHeight: true,
 			autoplay: true,
 			navText: [
-		      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
-		      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
-	     	]
+				"<i class='icon-keyboard_arrow_left owl-direction'></i>",
+				"<i class='icon-keyboard_arrow_right owl-direction'></i>"
+			]
 		});
 
 		var owl = $('.owl-work');
@@ -82,58 +82,58 @@
 			mouseDrag: false,
 			autoWidth: true,
 			autoHeight: true,
-	    autoplay: true,
-	    autoplayTimeout:2000,
-	    autoplayHoverPause:true,
+			autoplay: true,
+			autoplayTimeout:2000,
+			autoplayHoverPause:true,
 			navText: [
 				"<i class='icon-chevron-thin-left'></i>",
 				"<i class='icon-chevron-thin-right'></i>"
 			],
 			responsive:{
-			  0:{
-		      items:1,
-		      stagePadding: 10
-			  },
-			  500:{
-			  	items:2,
-		      stagePadding: 20
-			  },
-			  600:{
-		      items:2,
-		      stagePadding: 40
-			  },
-			  800: {
-			  	items:2,
-			  	stagePadding: 100
-			  },
-			  1100:{
-		      items:3
-			  },
-			  1400:{
-		      items:4
-			  },
+				0:{
+					items:1,
+					stagePadding: 10
+				},
+				500:{
+					items:2,
+					stagePadding: 20
+				},
+				600:{
+					items:2,
+					stagePadding: 40
+				},
+				800: {
+					items:2,
+					stagePadding: 100
+				},
+				1100:{
+					items:3
+				},
+				1400:{
+					items:4
+				},
 			}
 		});
 	};
 
 	/*----------------------------------------
-		Slider
+	Slider
 	----------------------------------------*/
 	var flexSlider = function() {
-	  $('.flexslider').flexslider({
-	    animation: "fade",
-	    prevText: "",
-	    nextText: "",
-	    animationSpeed: 1000,
-	    slideshow: true,
-	    controlNav: false,
-	    animationLoop: true,
-	    directionNav: false
-	  });
+		$('.flexslider').flexslider({
+			animation: "fade",
+			prevText: "",
+			nextText: "",
+			animationSpeed: 1000,
+			slideshow: true,
+			controlNav: false,
+			animationLoop: true,
+			directionNav: false
+		});
 	}
 
 	/*----------------------------------------
-		Animate Scroll
+	Animate Scroll
 	----------------------------------------*/
 
 	var contentWayPoint = function() {
@@ -177,8 +177,8 @@
 		$(window).scroll(function(){
 
 			var $this = $(this),
-				 	st = $this.scrollTop(),
-				 	navbar = $('.probootstrap-navbar');
+			st = $this.scrollTop(),
+			navbar = $('.probootstrap-navbar');
 
 			if ( st > 400 ) {
 				navbar.addClass('scrolled');
@@ -186,16 +186,16 @@
 				navbar.removeClass('scrolled');
 			}
 
-	   	if (st > lastScrollTop){
-	      if (navbar.hasClass('scrolled')) {
-	      	navbar.removeClass('awake');
-	      }
-	   	} else {
-	      if (navbar.hasClass('scrolled')) {
-	      	navbar.addClass('awake');
-	      }
-	   	}
-	   	lastScrollTop = st;
+			if (st > lastScrollTop){
+				if (navbar.hasClass('scrolled')) {
+					navbar.removeClass('awake');
+				}
+			} else {
+				if (navbar.hasClass('scrolled')) {
+					navbar.addClass('awake');
+				}
+			}
+			lastScrollTop = st;
 
 		});
 	};
@@ -217,18 +217,18 @@
 		$('.navbar-nav a:not([class="external"])').click(function(event){
 
 			var section = $(this).data('nav-section'),
-				navbar = $('.navbar-nav');
-				if (isMobile.any()) {
-					$('.navbar-toggle').click();
-				}
-				if ( $('[data-section="' + section + '"]').length ) {
-			    	$('html, body').animate({
-			        	scrollTop: $('[data-section="' + section + '"]').offset().top
-			    	}, 500, 'easeInOutExpo');
-			   }
+			navbar = $('.navbar-nav');
+			if (isMobile.any()) {
+				$('.navbar-toggle').click();
+			}
+			if ( $('[data-section="' + section + '"]').length ) {
+				$('html, body').animate({
+					scrollTop: $('[data-section="' + section + '"]').offset().top
+				}, 500, 'easeInOutExpo');
+			}
 
-		    event.preventDefault();
-		    return false;
+			event.preventDefault();
+			return false;
 		});
 
 
@@ -250,31 +250,31 @@
 		var $section = $('section[data-section]');
 
 		$section.waypoint(function(direction) {
-		  	if (direction === 'down') {
-		    	navActive($(this.element).data('section'));
-		  	}
+			if (direction === 'down') {
+				navActive($(this.element).data('section'));
+			}
 		}, {
-	  		offset: '150px'
+			offset: '150px'
 		});
 
 		$section.waypoint(function(direction) {
-		  	if (direction === 'up') {
-		    	navActive($(this.element).data('section'));
-		  	}
+			if (direction === 'up') {
+				navActive($(this.element).data('section'));
+			}
 		}, {
-		  	offset: function() { return -$(this.element).height() - 155; }
+			offset: function() { return -$(this.element).height() - 155; }
 		});
 
 	};
 
 	var dateCountDown = function() {
 		$('.date-countdown').simplyCountdown({
-	    year: 2019, // year
-	    month: 9, // month
-	    day: 21, // day
-	    hours: 14, // Default is 0 [0-23] integer
-      minutes: 30, // Default is 0 [0-59] integer
-      seconds: 0, // Default is 0 [0-59] integer
+			year: 2019, // year
+			month: 9, // month
+			day: 21, // day
+			hours: 14, // Default is 0 [0-23] integer
+			minutes: 30, // Default is 0 [0-59] integer
+			seconds: 0, // Default is 0 [0-59] integer
 		});
 	};
 
@@ -298,9 +298,9 @@
 				// and to which popup will be scaled down
 				// By defailt it looks for an image tag:
 				opener: function(openerElement) {
-				// openerElement is the element on which popup was initialized, in this case its <a> tag
-				// you don't need to add "opener" option if this code matches your needs, it's defailt one.
-				return openerElement.is('img') ? openerElement : openerElement.find('img');
+					// openerElement is the element on which popup was initialized, in this case its <a> tag
+					// you don't need to add "opener" option if this code matches your needs, it's defailt one.
+					return openerElement.is('img') ? openerElement : openerElement.find('img');
 				}
 			}
 		});
@@ -323,14 +323,14 @@
 
 
 		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-      disableOn: 700,
-      type: 'iframe',
-      mainClass: 'mfp-fade',
-      removalDelay: 160,
-      preloader: false,
+			disableOn: 700,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
 
-      fixedContentPos: false
-    });
+			fixedContentPos: false
+		});
 	};
 
 	function checkboxToBool(id) {
@@ -344,51 +344,77 @@
 
 	var toggleAuth = function() {
 		//check local storage
-		if (!localStorage.getItem('user_name_ls')) {
+		if (!localStorage.getItem('dummies_mariage_user')) {
 			console.log("toggle rsvp")
 			$('#rsvp').toggle()
 		} else {
-			$('#rsvp').toggle()
+			$('#auth').toggle()
 		}
 	}
 
 	function toJSONString(form) {
-	    var obj = {};
-			//Values obtained by the form
-			obj["invitees"] = $("#invitees").val()
-			obj["modification"] = $("#modification").val()
-			obj["food_requirements"] = $("#food-requirements").val()
-			obj["needs_accomodation"] = checkboxToBool("needs_accomodation")
-			obj["confirmed"] = checkboxToBool("presence-yes")
+		var obj = {};
+		//Values obtained by the form
+		obj["invitees"] = $("#invitees").val()
+		obj["modification"] = $("#modification").val()
+		obj["food_requirements"] = $("#food-requirements").val()
+		obj["needs_accomodation"] = checkboxToBool("needs_accomodation")
+		obj["confirmed"] = checkboxToBool("presence-yes")
 
-			//Values stored in the local storage
-			obj["user_name"] = localStorage.getItem('user_name')
+		//Values stored in the local storage
+		obj["user_name"] = localStorage.getItem('user_name')
 
 
-	    return JSON.stringify(obj);
-	  };
+		return JSON.stringify(obj);
+	};
+
+	function toJSONStringAuth() {
+		var obj = {}
+		obj["user_name"] = $("#user_name_auth").val()
+		obj["password"] = $("#password_auth").val()
+
+		return JSON.stringify(obj);
+	};
 
 	var submitGuestRsvp = function(){
 		// using jQuery because it is used everywhere else in this template
-	    var form = $("#guest_rsvp");
-			$(form).submit(function(event) {
-				event.preventDefault();
-	      var json = toJSONString(this);
-				console.log("Sending");
-				$.ajax({
-					type: 'POST',
-					//dataType: 'jsonp',
-					url: "http://localhost:8090/api/guests", // reverse proxy from nginx
-					data: json
-				}).done(function(response) {
-					console.log(response);
-				})
+		var form = $("#guest_rsvp");
+		$(form).submit(function(event) {
+			event.preventDefault();
+			var json = toJSONString(this);
+			console.log("Sending");
+			$.ajax({
+				type: 'POST',
+				//dataType: 'jsonp',
+				url: "http://www.easyWedCL.tk:8090/api/guests", // reverse proxy from nginx
+				data: json
+			}).done(function(response) {
+				console.log(response);
+			})
 
-			});
-	  };
+		});
+	};
 
-	  document.addEventListener("DOMContentLoaded", submitGuestRsvp);
+	document.addEventListener("DOMContentLoaded", submitGuestRsvp);
 
+	var	submitLogin = function() {
+		var form = $("#login");
+		$(form).submit(function(event) {
+			event.preventDefault();
+			var json = toJSONStringAuth();
+			$.ajax({
+				type: 'POST',
+				url: "http://www.easyWedCL.tk:8090/api/auth",
+				data: json
+			}).done(function(response) {
+				//Sets value in local storage
+				localStorage.setItem("dummies_mariage_user",response.user_name)
+				localStorage.setItem("dummies_mariage_id",response.id)
+				location.reload(true)
+			})
+		});
+	};
+	document.addEventListener("DOMContentLoaded", submitLogin);
 
 	$(function(){
 		contentWayPoint();

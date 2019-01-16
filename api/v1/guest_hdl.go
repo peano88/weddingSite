@@ -118,6 +118,7 @@ func (hb *HandlerBridge) AuthorizeGuest(w http.ResponseWriter, r *http.Request) 
 
 	if usID.UserName == "" {
 		hb.rnd.JSON(w, http.StatusBadRequest, "Not authorized")
+		return
 	}
 
 	hb.rnd.JSON(w, http.StatusOK, usID)
