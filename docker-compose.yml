@@ -20,8 +20,13 @@ services:
     build: ./api/v1
     expose:
       - "5000"
+    environment:
+      - EASYWED_SECRET=${EASYWED_SECRET}
+      - EASYWED_PWD=${EASYWED_PWD}
 
   db-api:
     build: ./api
     ports:
       - "27017:27017"
+    volumes:
+      - ./data:/data/db

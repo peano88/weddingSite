@@ -24,14 +24,27 @@ func logErr(err error) {
 	}
 }
 
-func init() {
+func connectToDb() error {
 	var err error
-	session, err = mgo.Dial("db-api")
+	for i := 0; i < 5; i++ {
+		session, err = mgo.Dial("db-api")
+		if err == nil {
+			return nil
+		}
+	}
+	return err
+}
 
+func init() {
+	err := connectToDb()
 	logErr(err)
 
 	db.Init(session)
 	hb.Init(db)
+	// check if admin is set, if not set it
+	if err = secureAdmin(); err != nil {
+		log.Fatal(err)
+	}
 	r = NewRouter()
 }
 

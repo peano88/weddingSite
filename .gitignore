@@ -27,5 +27,10 @@ tags
 # Persistent undo
 [._]*.un~
 
+#======== DOCKER ==========
+.env
+data
+data/*
+
 #======== NPM ===============
 node_modules

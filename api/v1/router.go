@@ -23,20 +23,20 @@ var routes = Routes{
 		Name:        "GetGuestByUserName",
 		Method:      "GET",
 		Pattern:     "/guests",
-		HandlerFunc: hb.GetGuestByUsername,
+		HandlerFunc: hb.CreateHandler(hb.GetGuestByUsername, ApiReadGuest),
 		Queries:     [2]string{"user_name", "{user_name}"},
 	},
 	Route{
 		Name:        "AddGuest",
 		Method:      "POST",
 		Pattern:     "/guests",
-		HandlerFunc: hb.AddGuest,
+		HandlerFunc: hb.CreateHandler(hb.AddGuest, ApiCreateGuest),
 	},
 	Route{
 		Name:        "UpdateGuest",
 		Method:      "PUT",
 		Pattern:     "/guests/{id}",
-		HandlerFunc: hb.ModifyGuest,
+		HandlerFunc: hb.CreateHandler(hb.ModifyGuest, ApiUpdateGuest),
 	},
 	Route{
 		Name:        "AuthGuest",

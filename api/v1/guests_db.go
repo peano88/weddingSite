@@ -5,7 +5,6 @@ import (
 	"log"
 
 	"golang.org/x/crypto/bcrypt"
-	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -27,33 +26,7 @@ type Guest struct {
 type UserIdentification struct {
 	ID       string `json:"id"`
 	UserName string `json:"user_name"`
-}
-
-const (
-	//GUEST_COLLECTION is the name of the MongoDb collection
-	GUEST_COLLECTION = "GUESTS"
-	//DB_NAME is the name of the MongoDb DB
-	DB_NAME = "L_C_WED"
-)
-
-//DataBridge is the struct handling the Guest Collection
-type DataBridge struct {
-	GuestColl *mgo.Collection
-}
-
-//Init initialize the connection with the MongoDb and instantiate the collection
-func (db *DataBridge) Init(session *mgo.Session) {
-
-	dataBase := session.DB(DB_NAME)
-	if dataBase == nil {
-		log.Fatal("Fatal error in instantiating the DB")
-	}
-
-	db.GuestColl = dataBase.C(GUEST_COLLECTION)
-
-	if db.GuestColl == nil {
-		log.Fatal("Fatal error in instantiating the guest collection")
-	}
+	JwtToken string `json:"jwt_token"`
 }
 
 //CreateGuest store the provided Guest in the collection
@@ -104,6 +77,7 @@ func (db *DataBridge) AuthGuest(username, password string) UserIdentification {
 	//use read guest to get the candidate guest by UserName
 	candidate, err := db.ReadGuest(bson.M{"user_name": username})
 	if err != nil {
+		log.Print(err)
 		return UserIdentification{}
 	}
 	//check that the password is the same (using bcrypt)
