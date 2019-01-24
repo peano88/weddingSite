@@ -61,6 +61,14 @@ func (db *DataBridge) ReadGuest(m bson.M) (Guest, error) {
 	return g, err
 }
 
+//ReadAll is a row wrapper to fetch all guests
+func (db *DataBridge) ReadAll() ([]Guest, error) {
+	var gs []Guest
+
+	err := db.GuestColl.Find(bson.M{}).All(&gs)
+	return gs, err
+}
+
 //UpdateGuest allows to modify certains attributes of a Guest
 func (db *DataBridge) UpdateGuest(g *Guest) error {
 	// CHange only certain preselected attributes

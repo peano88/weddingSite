@@ -27,6 +27,12 @@ var routes = Routes{
 		Queries:     [2]string{"user_name", "{user_name}"},
 	},
 	Route{
+		Name:        "GetGuestAll",
+		Method:      "GET",
+		Pattern:     "/guests",
+		HandlerFunc: hb.CreateHandler(hb.GetGuestAll, ApiReadAll),
+	},
+	Route{
 		Name:        "AddGuest",
 		Method:      "POST",
 		Pattern:     "/guests",

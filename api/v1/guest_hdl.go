@@ -118,6 +118,17 @@ func (hb *HandlerBridge) GetGuestByUsername(w http.ResponseWriter, r *http.Reque
 	hb.rnd.JSON(w, http.StatusOK, g)
 }
 
+//GetGuestAll retrieve all guests
+func (hb *HandlerBridge) GetGuestAll(w http.ResponseWriter, r *http.Request) {
+
+	gs, err := hb.db.ReadAll()
+
+	if err != nil {
+		hb.rnd.JSON(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+	hb.rnd.JSON(w, http.StatusOK, gs)
+}
 func createToken(ui *UserIdentification) error {
 	//create the token as library object
 	token := jwt.New(jwt.SigningMethodHS256)
