@@ -18,7 +18,7 @@ import (
 )
 
 const (
-	BASE_ENDPOINT_GUESTS = "/guests" // the endpoint
+	baseEndpointGuest = "/guests" // the endpoint
 )
 
 func testCreate(t *testing.T, provided *Guest) {
@@ -32,7 +32,7 @@ func testCreate(t *testing.T, provided *Guest) {
 	if err := json.NewEncoder(buf).Encode(*provided); err != nil {
 		t.Fatalf("Test create encode error : %s", err.Error())
 	}
-	req, _ := http.NewRequest("POST", BASE_ENDPOINT_GUESTS, buf)
+	req, _ := http.NewRequest("POST", baseEndpointGuest, buf)
 	rr := httptest.NewRecorder()
 	r.ServeHTTP(rr, req)
 
@@ -56,7 +56,7 @@ func testRead(t *testing.T, provided *Guest) {
 	assert := assert.New(t)
 
 	// Create the GET request
-	req, _ := http.NewRequest("GET", BASE_ENDPOINT_GUESTS+"?user_name=Telemachus", nil)
+	req, _ := http.NewRequest("GET", baseEndpointGuest+"?user_name=Telemachus", nil)
 	rr := httptest.NewRecorder()
 	r.ServeHTTP(rr, req)
 
@@ -143,7 +143,7 @@ func testUpdate(t *testing.T, provided *Guest) {
 	if err := json.NewEncoder(buf).Encode(&stored); err != nil {
 		t.Fatalf("Test update encode error : %s", err.Error())
 	}
-	req, _ := http.NewRequest("PUT", BASE_ENDPOINT_GUESTS+"/"+stored.ID.Hex(), buf)
+	req, _ := http.NewRequest("PUT", baseEndpointGuest+"/"+stored.ID.Hex(), buf)
 	rr := httptest.NewRecorder()
 	r.ServeHTTP(rr, req)
 

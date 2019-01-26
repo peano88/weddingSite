@@ -62,21 +62,21 @@ func extractToken(r *http.Request) (*jwt.Token, string, error) {
 	return token, tokenString, nil
 }
 
-func validateTokenForAPI(token string, apiCode int, db *DataBridge) error {
+func validateTokenForAPI(token string, APICode int, db *DataBridge) error {
 	// Get the Auth Object from the db
 	auth, err := db.ReadAuth(token)
 	if err != nil {
 		return err
 	}
-	if !checkAuthCode(apiCode, auth.AuthCode) {
+	if !checkAuthCode(APICode, auth.AuthCode) {
 		log.Println("1")
-		log.Printf("apiCode:%d authCode:%d", apiCode, auth.AuthCode)
+		log.Printf("APICode:%d authCode:%d", APICode, auth.AuthCode)
 		return errors.New("User is not authorized")
 	}
 	return nil
 }
 
-func validateRequestApiReadGuest(r *http.Request, db *DataBridge) error {
+func validateRequestAPIReadGuest(r *http.Request, db *DataBridge) error {
 	// Extract token
 	token, tokenString, err := extractToken(r)
 	if err != nil {
@@ -88,7 +88,7 @@ func validateRequestApiReadGuest(r *http.Request, db *DataBridge) error {
 		return errors.New("Not valid Token")
 	}
 	// Compare the user rights
-	if err = validateTokenForAPI(tokenString, ApiReadGuest, db); err != nil {
+	if err = validateTokenForAPI(tokenString, APIReadGuest, db); err != nil {
 		return err
 	}
 
@@ -111,7 +111,7 @@ func validateRequestApiReadGuest(r *http.Request, db *DataBridge) error {
 	return nil
 }
 
-func validateRequestApiReadGuestAll(r *http.Request, db *DataBridge) error {
+func validateRequestAPIReadGuestAll(r *http.Request, db *DataBridge) error {
 	// Extract token
 	token, tokenString, err := extractToken(r)
 	if err != nil {
@@ -122,13 +122,13 @@ func validateRequestApiReadGuestAll(r *http.Request, db *DataBridge) error {
 		return errors.New("Not valid Token")
 	}
 	// Compare the user rights
-	if err = validateTokenForAPI(tokenString, ApiReadAll, db); err != nil {
+	if err = validateTokenForAPI(tokenString, APIReadAll, db); err != nil {
 		return err
 	}
 	return nil
 }
 
-func validateRequestApiCreateGuest(r *http.Request, db *DataBridge) error {
+func validateRequestAPICreateGuest(r *http.Request, db *DataBridge) error {
 	// Extract token
 	token, tokenString, err := extractToken(r)
 	if err != nil {
@@ -139,14 +139,14 @@ func validateRequestApiCreateGuest(r *http.Request, db *DataBridge) error {
 		return errors.New("Not valid Token")
 	}
 	// Compare the user rights
-	if err = validateTokenForAPI(tokenString, ApiCreateGuest, db); err != nil {
+	if err = validateTokenForAPI(tokenString, APICreateGuest, db); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func validateRequestApiUpdateGuest(r *http.Request, db *DataBridge) error {
+func validateRequestAPIUpdateGuest(r *http.Request, db *DataBridge) error {
 	// Extract token
 	token, tokenString, err := extractToken(r)
 	if err != nil {
@@ -158,7 +158,7 @@ func validateRequestApiUpdateGuest(r *http.Request, db *DataBridge) error {
 		return errors.New("Not valid Token")
 	}
 	// Compare the user rights
-	if err = validateTokenForAPI(tokenString, ApiUpdateGuest, db); err != nil {
+	if err = validateTokenForAPI(tokenString, APIUpdateGuest, db); err != nil {
 		return err
 	}
 
@@ -201,16 +201,16 @@ func validateRequestApiUpdateGuest(r *http.Request, db *DataBridge) error {
 	return nil
 }
 
-func newValidator(r *http.Request, db *DataBridge, apiCode int) func(r *http.Request, db *DataBridge) error {
-	switch apiCode {
-	case ApiReadGuest:
-		return validateRequestApiReadGuest
-	case ApiReadAll:
-		return validateRequestApiReadGuestAll
-	case ApiCreateGuest:
-		return validateRequestApiCreateGuest
-	case ApiUpdateGuest:
-		return validateRequestApiUpdateGuest
+func newValidator(r *http.Request, db *DataBridge, APICode int) func(r *http.Request, db *DataBridge) error {
+	switch APICode {
+	case APIReadGuest:
+		return validateRequestAPIReadGuest
+	case APIReadAll:
+		return validateRequestAPIReadGuestAll
+	case APICreateGuest:
+		return validateRequestAPICreateGuest
+	case APIUpdateGuest:
+		return validateRequestAPIUpdateGuest
 	}
 	return func(r *http.Request, db *DataBridge) error { return nil }
 }

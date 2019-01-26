@@ -6,30 +6,31 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
+// Numeric code for each API
 const (
-	ApiReadGuest   = 2
-	ApiUpdateGuest = 3
-	ApiCreateGuest = 5
-	ApiReadAll     = 7
+	APIReadGuest   = 2
+	APIUpdateGuest = 3
+	APICreateGuest = 5
+	APIReadAll     = 7
 )
 
 func checkValidityAuthCode(authCode int) bool {
 	if authCode == 1 || authCode == 0 {
 		return false
 	}
-	return (authCode%ApiReadGuest) == 0 || (authCode%ApiCreateGuest) == 0 || (authCode%ApiUpdateGuest) == 0 || (authCode%ApiReadAll) == 0
+	return (authCode%APIReadGuest) == 0 || (authCode%APICreateGuest) == 0 || (authCode%APIUpdateGuest) == 0 || (authCode%APIReadAll) == 0
 }
 
-// checkAuthCode check the api code against the
+// checkAuthCode check the API code against the
 // auth code stored in the db
-func checkAuthCode(apiCode, authCodeStored int) bool {
+func checkAuthCode(APICode, authCodeStored int) bool {
 	// If == 0 is trivial. If > stands, for sure the user is not authorized
-	// Example: a typical user has C+U rights ==> value 6; if the api is the ReadAll then apiCode is 7
+	// Example: a typical user has C+U rights ==> value 6; if the API is the ReadAll then APICode is 7
 	// and 7 > 6. The authorization is denied
-	if apiCode == 0 || apiCode > authCodeStored {
+	if APICode == 0 || APICode > authCodeStored {
 		return false
 	}
-	return authCodeStored%apiCode == 0
+	return authCodeStored%APICode == 0
 }
 
 //Auth is the authorization structure. In a less primitive environment
@@ -42,6 +43,7 @@ type Auth struct {
 	AuthCode int           `bson:"auth_code"`
 }
 
+//InsertAuth insert an auth object in the db
 func (db *DataBridge) InsertAuth(token, user string, authCode int) error {
 	if token == "" {
 		return errors.New("No token provided")

@@ -30,12 +30,12 @@ func (hb *HandlerBridge) Init(d DataBridge) {
 	hb.rnd = renderer.New()
 }
 
-//
-func (hb *HandlerBridge) CreateHandler(handler http.HandlerFunc, apiCode int) http.HandlerFunc {
+//CreateHandler is the wrapper to execute the validation middleware
+func (hb *HandlerBridge) CreateHandler(handler http.HandlerFunc, APICode int) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// validate the Request
-		if err := newValidator(r, &hb.db, apiCode)(r, &hb.db); err != nil {
-			hb.rnd.JSON(w, http.StatusBadRequest, err.Error())
+		if err := newValidator(r, &hb.db, APICode)(r, &hb.db); err != nil {
+			hb.rnd.JSON(w, http.StatusForbidden, err.Error())
 			return
 		}
 		handler.ServeHTTP(w, r)
@@ -83,7 +83,7 @@ func (hb *HandlerBridge) ModifyGuest(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if id != g.ID.Hex() {
-		hb.rnd.JSON(w, http.StatusBadRequest, "Invalid Guest provided")
+		hb.rnd.JSON(w, http.StatusForbidden, "Invalid Guest provided")
 		return
 	}
 
@@ -101,7 +101,12 @@ func (hb *HandlerBridge) GetGuestByUsername(w http.ResponseWriter, r *http.Reque
 	un, ok := mux.Vars(r)["user_name"]
 
 	if !ok {
-		hb.rnd.JSON(w, http.StatusBadRequest, "No Id provided")
+		hb.rnd.JSON(w, http.StatusBadRequest, "No Username provided")
+		return
+	}
+
+	if !sanitizeUserName(un) {
+		hb.rnd.JSON(w, http.StatusBadRequest, "Invalid Username")
 		return
 	}
 
@@ -129,6 +134,7 @@ func (hb *HandlerBridge) GetGuestAll(w http.ResponseWriter, r *http.Request) {
 	}
 	hb.rnd.JSON(w, http.StatusOK, gs)
 }
+
 func createToken(ui *UserIdentification) error {
 	//create the token as library object
 	token := jwt.New(jwt.SigningMethodHS256)
@@ -159,26 +165,25 @@ func (hb *HandlerBridge) AuthorizeGuest(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	usID := hb.db.AuthGuest(u.UserName, u.Password)
+	usID, err := hb.db.AuthGuest(u.UserName, u.Password)
 
-	if usID.UserName == "" {
-		hb.rnd.JSON(w, http.StatusBadRequest, "Not authorized")
+	if err != nil {
+		hb.rnd.JSON(w, http.StatusUnauthorized, err.Error())
 		return
 	}
 
 	//Create a token and set it in the User Identification Structure
-	if err := createToken(&usID); err != nil {
+	if err = createToken(usID); err != nil {
 		hb.rnd.JSON(w, http.StatusInternalServerError, err.Error())
 		return
 	}
 
 	//Store the created token in the db
 	// Default permission: ReadOne and Update
-	var err error
 	if u.UserName == "admin" {
-		err = hb.db.InsertAuth(usID.JwtToken, usID.UserName, ApiReadGuest*ApiUpdateGuest*ApiReadAll*ApiCreateGuest)
+		err = hb.db.InsertAuth(usID.JwtToken, usID.UserName, APIReadGuest*APIUpdateGuest*APIReadAll*APICreateGuest)
 	} else {
-		err = hb.db.InsertAuth(usID.JwtToken, usID.UserName, ApiReadGuest*ApiUpdateGuest)
+		err = hb.db.InsertAuth(usID.JwtToken, usID.UserName, APIReadGuest*APIUpdateGuest)
 	}
 
 	if err != nil {

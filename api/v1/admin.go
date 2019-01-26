@@ -7,6 +7,10 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
+const (
+	adminUser = "admin"
+)
+
 func getPwd() (string, error) {
 	// The password is stored as environmental variable
 	pwd, ok := os.LookupEnv("EASYWED_PWD")
@@ -28,7 +32,7 @@ func createAdmin() error {
 		return err
 	}
 	g := new(Guest)
-	g.UserName = "admin"
+	g.UserName = adminUser
 	g.Password = pwd
 
 	//Create user
@@ -37,9 +41,9 @@ func createAdmin() error {
 
 func secureAdmin() error {
 	// check if the admin exists
-	ad, _ := db.ReadGuest(bson.M{"user_name": "admin"})
+	ad, _ := db.ReadGuest(bson.M{"user_name": adminUser})
 
-	if ad.UserName == "admin" {
+	if ad.UserName == adminUser {
 		return nil
 	}
 	// It does not exist: create it

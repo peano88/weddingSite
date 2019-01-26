@@ -2,7 +2,7 @@ package main
 
 import (
 	"errors"
-	"log"
+	"regexp"
 
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/mgo.v2/bson"
@@ -23,6 +23,7 @@ type Guest struct {
 	FoodRequirements  string        `json:"food_requirements" bson:"food_requirements"`
 }
 
+//UserIdentification contains the information used to identify an user
 type UserIdentification struct {
 	ID       string `json:"id"`
 	UserName string `json:"user_name"`
@@ -80,23 +81,32 @@ func (db *DataBridge) UpdateGuest(g *Guest) error {
 	}})
 }
 
+func sanitizeUserName(username string) bool {
+	re := regexp.MustCompile("^[a-z]+$") // username are fixed and can't be changed
+	return re.MatchString(username)
+}
+
 //AuthGuest check the guest against the password
-func (db *DataBridge) AuthGuest(username, password string) UserIdentification {
+func (db *DataBridge) AuthGuest(username, password string) (*UserIdentification, error) {
+	//sanitize the UserName
+	if !sanitizeUserName(username) {
+		return nil, errors.New("Invalid username")
+	}
+
 	//use read guest to get the candidate guest by UserName
 	candidate, err := db.ReadGuest(bson.M{"user_name": username})
 	if err != nil {
-		log.Print(err)
-		return UserIdentification{}
+		return nil, err
 	}
 	//check that the password is the same (using bcrypt)
 	err = bcrypt.CompareHashAndPassword([]byte(candidate.Password), []byte(password))
 	if err != nil {
-		return UserIdentification{}
+		return nil, err
 	}
-	return UserIdentification{
+	return &UserIdentification{
 		UserName: candidate.UserName,
 		ID:       candidate.ID.Hex(),
-	}
+	}, nil
 }
 
 //No delete
