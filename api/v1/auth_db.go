@@ -71,6 +71,12 @@ func (db *DataBridge) InsertAuth(token, user string, authCode int) error {
 		return err
 	}
 
+	//check if it exists already
+	err = tc.Find(bson.M{"token": token}).One(&a)
+	if err == nil {
+		return nil
+	}
+
 	if err := tc.Insert(&a); err != nil {
 		return err
 	}
