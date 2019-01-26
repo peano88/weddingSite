@@ -65,7 +65,13 @@ func (db *DataBridge) InsertAuth(token, user string, authCode int) error {
 		AuthCode: authCode,
 	}
 
-	if err := db.TokenColl.Insert(&a); err != nil {
+	tc, err := db.tokenColl()
+
+	if err != nil {
+		return err
+	}
+
+	if err := tc.Insert(&a); err != nil {
 		return err
 	}
 
@@ -80,7 +86,12 @@ func (db *DataBridge) ReadAuth(token string) (Auth, error) {
 		return a, errors.New("No token provided")
 	}
 
-	err := db.TokenColl.Find(bson.M{"token": token}).One(&a)
+	tc, err := db.tokenColl()
+
+	if err != nil {
+		return a, err
+	}
+	err = tc.Find(bson.M{"token": token}).One(&a)
 	return a, err
 
 }
@@ -101,7 +112,12 @@ func (db *DataBridge) UpdateAuth(auth *Auth) error {
 		return errors.New("Changing user is not possible")
 	}
 
-	return db.TokenColl.UpdateId(auth.ID, bson.M{"$set": bson.M{
+	tc, err := db.tokenColl()
+
+	if err != nil {
+		return err
+	}
+	return tc.UpdateId(auth.ID, bson.M{"$set": bson.M{
 		"valid":     auth.Valid,
 		"auth_code": auth.AuthCode,
 	},

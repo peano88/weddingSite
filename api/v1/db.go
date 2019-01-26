@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-
 	mgo "gopkg.in/mgo.v2"
 )
 
@@ -17,27 +15,30 @@ const (
 
 //DataBridge is the struct handling the Guest Collection
 type DataBridge struct {
-	GuestColl *mgo.Collection
-	TokenColl *mgo.Collection
+	masterSession *mgo.Session
 }
 
-//Init initialize the connection with the MongoDb and instantiate the collection
+func (db *DataBridge) guestColl() (*mgo.Collection, error) {
+	//Ping to check the availability
+	if err := db.masterSession.Ping(); err != nil {
+		return nil, err
+	}
+	copySession := db.masterSession.Clone()
+	return copySession.DB(dbName).C(guestCollection), nil
+}
+
+func (db *DataBridge) tokenColl() (*mgo.Collection, error) {
+	//Ping to check the availability
+	if err := db.masterSession.Ping(); err != nil {
+		return nil, err
+	}
+	copySession := db.masterSession.Clone()
+	return copySession.DB(dbName).C(tokenCollection), nil
+}
+
+//Init set the master session
 func (db *DataBridge) Init(session *mgo.Session) {
 
-	dataBase := session.DB(dbName)
-	if dataBase == nil {
-		log.Fatal("Fatal error in instantiating the DB")
-	}
+	db.masterSession = session
 
-	db.GuestColl = dataBase.C(guestCollection)
-
-	if db.GuestColl == nil {
-		log.Fatal("Fatal error in instantiating the guest collection")
-	}
-
-	db.TokenColl = dataBase.C(tokenCollection)
-
-	if db.TokenColl == nil {
-		log.Fatal("Fatal error in instantiating the token collection")
-	}
 }

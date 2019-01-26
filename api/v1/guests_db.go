@@ -47,7 +47,13 @@ func (db *DataBridge) CreateGuest(g *Guest) error {
 	//set back the password
 	g.Password = string(bytesPwd)
 
-	if err := db.GuestColl.Insert(g); err != nil {
+	gc, err := db.guestColl()
+
+	if err != nil {
+		return err
+	}
+
+	if err := gc.Insert(g); err != nil {
 		return err
 	}
 
@@ -58,7 +64,13 @@ func (db *DataBridge) CreateGuest(g *Guest) error {
 func (db *DataBridge) ReadGuest(m bson.M) (Guest, error) {
 	var g Guest
 
-	err := db.GuestColl.Find(m).One(&g)
+	gc, err := db.guestColl()
+
+	if err != nil {
+		return g, err
+	}
+
+	err = gc.Find(m).One(&g)
 	return g, err
 }
 
@@ -66,14 +78,24 @@ func (db *DataBridge) ReadGuest(m bson.M) (Guest, error) {
 func (db *DataBridge) ReadAll() ([]Guest, error) {
 	var gs []Guest
 
-	err := db.GuestColl.Find(bson.M{}).All(&gs)
+	gc, err := db.guestColl()
+
+	if err != nil {
+		return gs, err
+	}
+	err = gc.Find(bson.M{}).All(&gs)
 	return gs, err
 }
 
 //UpdateGuest allows to modify certains attributes of a Guest
 func (db *DataBridge) UpdateGuest(g *Guest) error {
+	gc, err := db.guestColl()
+
+	if err != nil {
+		return err
+	}
 	// CHange only certain preselected attributes
-	return db.GuestColl.UpdateId(g.ID, bson.M{"$set": bson.M{
+	return gc.UpdateId(g.ID, bson.M{"$set": bson.M{
 		"modification":       g.Modification,
 		"confirmed":          g.Confirmed,
 		"needs_accomodation": g.NeedsAccomodation,

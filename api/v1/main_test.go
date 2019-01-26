@@ -23,9 +23,15 @@ const (
 
 func testCreate(t *testing.T, provided *Guest) {
 
+	gc, err := db.guestColl()
+
+	if err != nil {
+		t.Fatalf("Error while connecting to collection")
+	}
+
 	// Check that the guest has not already been created
 	var g Guest
-	db.GuestColl.Find(bson.M{"user_name": "Telemachus"}).One(&g)
+	gc.Find(bson.M{"user_name": "Telemachus"}).One(&g)
 
 	// Create the request to create a guest
 	buf := new(bytes.Buffer)
@@ -41,7 +47,7 @@ func testCreate(t *testing.T, provided *Guest) {
 	assert.Equal(http.StatusOK, rr.Code, "check status")
 
 	// Get directly from the db
-	db.GuestColl.Find(bson.M{"user_name": "Telemachus"}).One(&g)
+	gc.Find(bson.M{"user_name": "Telemachus"}).One(&g)
 
 	// Check that the guest was created
 	require.NotEqual(t, bson.ObjectId(""), g.ID, "Id not correctly created")
@@ -117,8 +123,13 @@ func testAuth(t *testing.T, provided *Guest) {
 	assert.Equal(usID.UserName, provided.UserName, "check equality of UserName")
 
 	//Retrieve the guest from the db to get the correct Id
+	gc, err := db.guestColl()
+
+	if err != nil {
+		t.Fatalf("error while connecting to collection")
+	}
 	var g Guest
-	db.GuestColl.Find(bson.M{"user_name": provided.UserName}).One(&g)
+	gc.Find(bson.M{"user_name": provided.UserName}).One(&g)
 
 	assert.Equal(g.ID.Hex(), usID.ID, "check equality of ID")
 
@@ -152,8 +163,13 @@ func testUpdate(t *testing.T, provided *Guest) {
 	assert.Equal(http.StatusOK, rr.Code, "check status")
 
 	// Get directly from the db
+	gc, err := db.guestColl()
+
+	if err != nil {
+		t.Fatalf("error while connecting to collection")
+	}
 	var g Guest
-	db.GuestColl.Find(bson.M{"user_name": "Telemachus"}).One(&g)
+	gc.Find(bson.M{"user_name": "Telemachus"}).One(&g)
 
 	assert.Equal(stored, g, "Update not successfull")
 
@@ -190,6 +206,12 @@ func TestMain(t *testing.T) {
 	t.Run("test_update", createSubTest(&g, testUpdate))
 
 	// Clean the test data
-	db.GuestColl.Remove(bson.M{"user_name": "Telemachus"})
+
+	gc, err := db.guestColl()
+
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	gc.Remove(bson.M{"user_name": "Telemachus"})
 
 }
