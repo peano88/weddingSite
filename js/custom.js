@@ -342,13 +342,56 @@
 		}
 	}
 
+	function boolToCheckbox(val,id) {
+		if (val) {
+			$("#"+id).attr('checked', true);
+		}
+		else {
+			$("#"+id).attr('checked', false);
+		}
+	}
+
+
+	function callGetGuests() {
+		// if we are at this point the jwt token is known
+		var user = localStorage.getItem('dummies_mariage_user')
+		var token = localStorage.getItem('dummies_mariage_jwt')
+		var id = localStorage.getItem('dummies_mariage_id')
+		$.ajax({
+			type: 'GET',
+			headers: {
+				"Authorization": "Bearer " + token,
+				"Accept": "text/json"
+			},
+			//dataType: 'jsonp',
+			url: "http://www.easyWedCL.tk:8090/api/guests?user_name=" + user  , // reverse proxy from nginx
+		}).done(function(response) {
+
+			// Invitees is read only
+			$("#invitees").val(response.invitees)
+			$("#invitees").attr('disabled',true)
+			$("#modification").val(response.modification)
+			$("#food-requirements").val(response.food_requirements)
+			boolToCheckbox(response.needs_accomodation,"needs_accomodation")
+			boolToCheckbox(response.confirmed,"presence-yes")
+
+
+		})
+	}
+
+
 	var toggleAuth = function() {
 		//check local storage
-		if (!localStorage.getItem('dummies_mariage_user')) {
+		if (!localStorage.getItem('dummies_mariage_user') ||
+	 			!localStorage.getItem('dummies_mariage_id') ||
+				!localStorage.getItem('dummies_mariage_jwt')) {
 			console.log("toggle rsvp")
 			$('#rsvp').toggle()
 		} else {
 			$('#auth').toggle()
+			console.log("call get guest")
+			// Fill the form with the data from the db
+			callGetGuests()
 		}
 	}
 
@@ -362,8 +405,8 @@
 		obj["confirmed"] = checkboxToBool("presence-yes")
 
 		//Values stored in the local storage
-		obj["user_name"] = localStorage.getItem('user_name')
-
+		obj["user_name"] = localStorage.getItem('dummies_mariage_user')
+		obj["id"] = localStorage.getItem('dummies_mariage_id')
 
 		return JSON.stringify(obj);
 	};
@@ -383,10 +426,17 @@
 			event.preventDefault();
 			var json = toJSONString(this);
 			console.log("Sending");
+			// if we are at this point the jwt token is known
+			var token = localStorage.getItem('dummies_mariage_jwt')
+			var id = localStorage.getItem('dummies_mariage_id')
 			$.ajax({
-				type: 'POST',
+				type: 'PUT',
+				headers: {
+					"Authorization": "Bearer " + token,
+					"Accept": "text/json"
+				},
 				//dataType: 'jsonp',
-				url: "http://www.easyWedCL.tk:8090/api/guests", // reverse proxy from nginx
+				url: "http://www.easyWedCL.tk:8090/api/guests/" + id  , // reverse proxy from nginx
 				data: json
 			}).done(function(response) {
 				console.log(response);
@@ -410,6 +460,7 @@
 				//Sets value in local storage
 				localStorage.setItem("dummies_mariage_user",response.user_name)
 				localStorage.setItem("dummies_mariage_id",response.id)
+				localStorage.setItem("dummies_mariage_jwt",response.jwt_token)
 				location.reload(true)
 			})
 		});

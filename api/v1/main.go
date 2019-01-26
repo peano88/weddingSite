@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/rs/cors"
 	mgo "gopkg.in/mgo.v2"
 )
 
@@ -54,8 +53,8 @@ func main() {
 	var wait time.Duration
 	wait = 13 // to be fixed later
 
-	// Cors enabling
-	handler := cors.Default().Handler(r)
+	// Cors enabling --> no nginx already takes care
+	//handler := cors.Default().Handler(r)
 
 	srv := &http.Server{
 		Addr: "0.0.0.0:5000", // for outside container communication
@@ -63,7 +62,7 @@ func main() {
 		WriteTimeout: time.Second * 15,
 		ReadTimeout:  time.Second * 15,
 		IdleTimeout:  time.Second * 60,
-		Handler:      handler, // Pass our instance of gorilla/mux in with cors.
+		Handler:      r, // Pass our instance of gorilla/mux in with cors.
 	}
 
 	// Run our server in a goroutine so that it doesn't block.
