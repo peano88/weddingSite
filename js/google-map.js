@@ -8,6 +8,7 @@ function init() {
 
     // Mairie de Saint Cloud
     var myLatlng = new google.maps.LatLng(48.8437742, 2.2191069);
+
     // 39.399872
     // -8.224454
 
@@ -37,6 +38,10 @@ function init() {
       {
         position: myLatlng,
         title: "Mairie de Saint Cloud"
+      },
+      {
+        position: new google.maps.LatLng(48.602368,1.5111383),
+        title: "Ferme au Colombier"
       }
     ];
 

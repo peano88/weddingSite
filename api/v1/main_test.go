@@ -151,7 +151,7 @@ func testUpdate(t *testing.T, provided *Guest) {
 
 	// Create the PUT request
 	buf := new(bytes.Buffer)
-	if err := json.NewEncoder(buf).Encode(&stored); err != nil {
+	if err = json.NewEncoder(buf).Encode(&stored); err != nil {
 		t.Fatalf("Test update encode error : %s", err.Error())
 	}
 	req, _ := http.NewRequest("PUT", baseEndpointGuest+"/"+stored.ID.Hex(), buf)

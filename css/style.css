@@ -383,8 +383,8 @@ a:hover, a:focus, a:active {
   }
 }
 
-.probootstrap-navbar .navbar-nav .dropdown li.active > a {
-  background: none;
+.probootstrap-navbar .navbar-nav .dropdown .navbar-form {
+  padding-top: 22px;
 }
 
 .probootstrap-navbar .navbar-nav.active > a {
@@ -781,6 +781,11 @@ a:hover, a:focus, a:active {
 
 .probootstrap-section.probootstrap-section-colored h1, .probootstrap-section.probootstrap-section-colored h2, .probootstrap-section.probootstrap-section-colored h3, .probootstrap-section.probootstrap-section-colored .text-intro-wrap .text-intro h2, .text-intro-wrap .text-intro .probootstrap-section.probootstrap-section-colored h2, .probootstrap-section.probootstrap-section-colored-darker h1, .probootstrap-section.probootstrap-section-colored-darker h2, .probootstrap-section.probootstrap-section-colored-darker h3, .probootstrap-section.probootstrap-section-colored-darker .text-intro-wrap .text-intro h2, .text-intro-wrap .text-intro .probootstrap-section.probootstrap-section-colored-darker h2 {
   color: #ffffff;
+}
+
+.probootstrap-section.probootstrap-section-colored a, .probootstrap-section.probootstrap-section-colored-darker a {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .probootstrap-section.probootstrap-section-colored p, .probootstrap-section.probootstrap-section-colored-darker p {

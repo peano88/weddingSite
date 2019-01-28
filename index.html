@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +17,7 @@
   <script src="js/vendor/respond.min.js"></script>
   <![endif]-->
 </head>
+
 <body>
 
   <!-- Fixed navbar -->
@@ -35,341 +37,368 @@
       <div id="navbar-collapse" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="#" data-nav-section="home">Home</a></li>
-          <li><a href="#" data-nav-section="groom-bride">Groom &amp; Bride</a></li>
+          <!--<li><a href="#" data-nav-section="groom-bride">Groom &amp; Bride</a></li>-->
           <li><a href="#" data-nav-section="when-where">When &amp; Where</a></li>
           <li><a href="#" data-nav-section="information">Info</a></li>
           <li><a href="#" data-nav-section="gallery">Gallery</a></li>
           <li><a href="#" data-nav-section="auth-rsvp">RSVP</a></li>
+          <li><a href="#" data-nav-section="contact">Contact</a></li>
 
-  <li class="dropdown">
-    <button class="btn dropdown-toggle" type="button" id="lang-dd"
-    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="img/en.png"> EN
-    <span class="caret"></span>
-  </button>
-  <div class="dropdown-menu" aria-labelledby="lang-dd">
-    <a class="dropdown-item" href="index.it.html">
-      <img src="img/it.png"> IT
-    </a></br>
-    <a class="dropdown-item" href="index.fr.html">
-      <img src="img/fr.png"> FR
-    </a>
-  </li>
+          <li class="dropdown">
+            <form class="navbar-form">
+              <div class="btn-group">
+                <button class="btn btn-default dropdown-toggle" id="lang-dd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <img src="img/en.png"> EN
+                  <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="lang-dd">
+                  <li><a href="./index.it.html"><img src="img/it.png"> IT</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="./index.fr.html"><img src="img/fr.png"> FR</a></li>
+                </ul>
+              </div>
+            </form>
+          </li>
         </ul>
       </div>
-
-      <ul class="nav pull-right">
-  <li class="dropdown">
-    <button class="btn dropdown-toggle" type="button" id="lang-dd"
-    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="img/en.png"> EN
-    <span class="caret"></span>
-  </button>
-  <div class="dropdown-menu" aria-labelledby="lang-dd">
-    <a class="dropdown-item" href="index.it.html">
-      <img src="img/it.png"> IT
-    </a></br>
-    <a class="dropdown-item" href="index.fr.html">
-      <img src="img/fr.png"> FR
-    </a>
-  </li>
-</ul>
-
     </div>
   </nav>
 
 
-<section class="flexslider" data-section="home">
-  <div class="container text-intro-wrap">
-    <div class="row">
-      <div class="col-md-12 text-center text-intro probootstrap-animate">
-        <h1>Cyrielle <em>&amp;</em> Lorenzo</h1>
-        <h2>Getting Married on September 21, 2019 &mdash; Saint Cloud, FR</h2>
-      </div>
-    </div>
-  </div>
-  <ul class="slides">
-    <li style="background-image: url(img/como.jpg)" data></li>
-    <li style="background-image: url(img/brehat.jpg)"></li>
-    <li style="background-image: url(img/hero_bg_3.jpg)"></li>
-  </ul>
-</section>
-
-<section class="probootstrap-section probootstrap-section-colored probootstrap-wedding-countdown">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center probootstrap-animate"><h4>The Wedding Begins In</h4></div>
-      <div class="col-md-12 probootstrap-animate">
-        <div class="date-countdown"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="probootstrap-section probootstrap-bg" data-section="groom-bride">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 probootstrap-groom-bride">
-
-        <div class="probootstrap-groom probootstrap-animate">
-          <figure>
-            <img src="img/groom_1.jpg" alt="the Beast" class="img-responsive">
-          </figure>
-          <span class="probootstrap-caption">The Groom</span>
-          <h2 class="text-center">Lorenzo</h2>
-        </div>
-
-        <div class="probootstrap-divider probootstrap-animate"><span>&amp;</span></div>
-
-        <div class="probootstrap-bride probootstrap-animate">
-          <figure>
-            <img src="img/bride_1.jpg" alt="the Beauty" class="img-responsive">
-          </figure>
-          <span class="probootstrap-caption">The Bride</span>
-          <h2 class="text-center">Cyrielle</h2>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="probootstrap-section probootstrap-section-colored" data-section="when-where">
-  <div class="container">
-    <div class="row mb40 text-center">
-      <div class="col-md-12 probootstrap-animate"><h2 class="mt0">When &amp; Where</h2></div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 probootstrap-animate">
-        <p><img src="img/Saint-Cloud_Town_Hall.JPG" alt="Marie de Saint Cloud" class="img-responsive img-rounded"></p>
-        <h3>Wedding Ceremony</h3>
-        <p>The civil wedding ceremony will be held at the marie de Saint Cloud at 2:00 PM</p>
-
-      </div>
-      <div class="col-md-6 probootstrap-animate">
-        <p><img src="img/baloons.jpg" alt="les baloons de lyon" class="img-responsive img-rounded"></p>
-        <h3>Wedding Party</h3>
-        <p>Stay tuned</p>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="map"></div>
-
-<section class="probootstrap-section probootstrap-section-colored-darker" data-section="information">
-  <div class="container">
-    <div class="row mb40 probootstrap-animate">
-      <div class="col-md-12 text-center"><h2>Info</h2></div>
-    </div>
-  </div>
-</section>
-
-<section class="probootstrap-section" data-section="gallery">
-  <div class="container">
-    <div class="row mb40 probootstrap-animate">
-      <div class="col-md-12 text-center"><h2>Gallery</h2></div>
-    </div>
-
-    <div class="row probootstrap-gutter30">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <div class="row probootstrap-gutter30">
-          <div class="col-md-6 probootstrap-animate">
-            <a class="probootstrap-image image-popup" href="img/dummies_bismarck.jpg" style="background-image: url(img/dummies_bismarck.jpg)">
-              <div class="probootstrap-image-for-popup"><img src="img/dummies_bismarck.jpg" alt="Couple at the origin" class="img-responsive"></div>
-            </a>
-          </div>
-          <div class="col-md-6 probootstrap-animate">
-            <a class="probootstrap-image image-popup" href="img/img_2.jpg" style="background-image: url(img/img_2.jpg)">
-              <div class="probootstrap-image-for-popup"><img src="img/img_2.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></div>
-            </a>
-          </div>
-        </div>
-        <div class="row probootstrap-gutter30">
-          <div class="col-md-12 probootstrap-animate">
-            <a class="probootstrap-image image-popup" href="img/bretagna_dummies.jpg" style="background-image: url(img/bretagna_dummies.jpg)">
-              <div class="probootstrap-image-for-popup"><img src="img/bretagna_dummies.jpg" alt="bretagna 2015" class="img-responsive"></div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <div class="row probootstrap-gutter30">
-          <div class="col-md-6">
-            <div class="row probootstrap-gutter30">
-              <div class="col-md-12 probootstrap-animate">
-                <a class="probootstrap-image image-popup" href="img/dummies_brehat.jpg" style="background-image: url(img/dummies_brehat.jpg)">
-                  <div class="probootstrap-image-for-popup"><img src="img/dummies_brehat.jpg" alt="Couple under the wind" class="img-responsive"></div>
-                </a>
-              </div>
-              <div class="col-md-12 probootstrap-animate">
-                <a class="probootstrap-image image-popup" href="img/dummies_blu.jpg" style="background-image: url(img/dummies_blu.jpg)">
-                  <div class="probootstrap-image-for-popup"><img src="img/dummies_blu.jpg" alt="Couple Genes" class="img-responsive"></div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 probootstrap-animate">
-            <a class="probootstrap-image  height-2x image-popup" href="img/dummies_vert.jpg" style="background-image: url(img/dummies_vert.jpg)">
-              <div class="probootstrap-image-for-popup"><img src="img/dummies_vert.jpg" alt="Couple in Vertical" class="img-responsive"></div>
-            </a>
-          </div>
+  <section class="flexslider" data-section="home">
+    <div class="container text-intro-wrap">
+      <div class="row">
+        <div class="col-md-12 text-center text-intro probootstrap-animate">
+          <h1>Cyrielle <em>&amp;</em> Lorenzo</h1>
+          <h2>Getting Married on September 21, 2019 &mdash; Saint Cloud, FR</h2>
         </div>
       </div>
     </div>
-    <!-- END row -->
+    <ul class="slides">
+      <li style="background-image: url(img/como.jpg)" data></li>
+      <li style="background-image: url(img/brehat1.jpg)"></li>
+      <li style="background-image: url(img/paris.jpg)"></li>
+    </ul>
+  </section>
 
-    <div class="row probootstrap-gutter30">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <div class="row probootstrap-gutter30">
-          <div class="col-md-6">
-            <div class="row probootstrap-gutter30">
-              <div class="col-md-12 probootstrap-animate">
-                <a class="probootstrap-image image-popup" href="img/dummies_paulaner.jpeg" style="background-image: url(img/dummies_paulaner.jpeg)">
-                  <div class="probootstrap-image-for-popup"><img src="img/dummies_paulaner.jpeg" alt="Couple in germany" class="img-responsive"></div>
-                </a>
-              </div>
-              <div class="col-md-12 probootstrap-animate">
-                <a class="probootstrap-image image-popup" href="img/img_2.jpg" style="background-image: url(img/img_2.jpg)">
-                  <div class="probootstrap-image-for-popup"><img src="img/img_2.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 probootstrap-animate">
-            <a class="probootstrap-image image-popup" href="img/dummies_brehat.jpg" style="background-image: url(img/dummies_brehat.jpg)">
-              <div class="probootstrap-image-for-popup"><img src="img/dummies_brehat.jpg" alt="Couple under the wind" class="img-responsive"></div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <div class="row probootstrap-gutter30">
-          <div class="col-md-6 probootstrap-animate">
-            <a class="probootstrap-image image-popup" href="img/dummies_pays_macron.jpg" style="background-image: url(img/dummies_pays_macron.jpg)">
-              <div class="probootstrap-image-for-popup"><img src="img/dummies_pays_macron.jpg" alt="Couple at nordic beach" class="img-responsive"></div>
-            </a>
-          </div>
-          <div class="col-md-6 probootstrap-animate">
-            <a class="probootstrap-image image-popup" href="img/lo_stanu.jpg" style="background-image: url(img/lo_stanu.jpg)">
-              <div class="probootstrap-image-for-popup"><img src="img/lo_stanu.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></div>
-            </a>
-          </div>
-        </div>
-        <div class="row probootstrap-gutter30">
-          <div class="col-md-12 probootstrap-animate">
-            <a class="probootstrap-image image-popup" href="img/dummies_bayonne.jpg" style="background-image: url(img/dummies_bayonne.jpg)">
-              <div class="probootstrap-image-for-popup"><img src="img/dummies_bayonne.jpg" alt="Couple in Bayonne" class="img-responsive"></div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END row -->
-  </div>
-</section>
-
-<section data-section="auth-rsvp">
-  <div id="auth" class="probootstrap-section probootstrap-section-colored">
+  <section class="probootstrap-section probootstrap-section-colored probootstrap-wedding-countdown">
     <div class="container">
-      <div class="row mb40">
-        <div class="col-md-12 text-center">
-          <h2 class="mt0 mb10 probootstrap-animate">Log In</h2>
+      <div class="row">
+        <div class="col-md-12 text-center probootstrap-animate">
+          <h4>The Wedding Begins In</h4>
+        </div>
+        <div class="col-md-12 probootstrap-animate">
+          <div class="date-countdown"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="probootstrap-section probootstrap-bg" data-section="groom-bride">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 probootstrap-groom-bride">
+
+          <div class="probootstrap-groom probootstrap-animate">
+            <figure>
+              <img src="img/isposoGiusto.jpg" alt="the Beast" class="img-responsive">
+            </figure>
+            <span class="probootstrap-caption">The Groom</span>
+            <h2 class="text-center">Lorenzo</h2>
+          </div>
+
+          <div class="probootstrap-divider probootstrap-animate"><span>&amp;</span></div>
+
+          <div class="probootstrap-bride probootstrap-animate">
+            <figure>
+              <img src="img/dumma5.jpg" alt="the Beauty" class="img-responsive">
+            </figure>
+            <span class="probootstrap-caption">The Bride</span>
+            <h2 class="text-center">Cyrielle</h2>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="probootstrap-section probootstrap-section-colored" data-section="when-where">
+    <div class="container">
+      <div class="row mb40 text-center">
+        <div class="col-md-12 probootstrap-animate">
+          <h2 class="mt0">When &amp; Where</h2>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="probootstrap-card probootstrap-animate">
-            <form class="probootstrap-form" id="login">
-              <div class="form-group">
-                <label for="user_name_auth">User name</label>
-                <input type="text" class="form-control" id="user_name_auth">
-              </div>
-              <div class="form-group">
-                <label for="password_auth">Password</label>
-                <input type="password" class="form-control" id="password_auth">
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-lg" value="Log In">
-              </div>
-            </form>
-          </div>
+        <div class="col-md-6 probootstrap-animate">
+          <p><img src="img/SaintCloud.jpg" alt="Marie de Saint Cloud" class="img-responsive img-rounded"></p>
+          <h3>Wedding Ceremony</h3>
+          <p>The civil wedding ceremony will be held at the marie de Saint Cloud at 2:00 PM</p>
+
+        </div>
+        <div class="col-md-6 probootstrap-animate">
+          <p><img src="img/ferme_colombier1.jpg" alt="les baloons de lyon" class="img-responsive img-rounded"></p>
+          <h3>Wedding Party</h3>
+          <p>Our wedding party, including cocktail, dinner and dancing will take place at the wonderful
+            <a href="http://ferme-au-colombier.com/">Ferme au colombier</p>
         </div>
       </div>
     </div>
   </div>
+  <div id="map"></div>
 
-  <div id="rsvp" class="probootstrap-section probootstrap-section-colored probootstrap-border-top">
+  <section class="probootstrap-section probootstrap-section-colored-darker" data-section="information">
     <div class="container">
-      <div class="row mb40">
+      <div class="row mb40 probootstrap-animate">
         <div class="col-md-12 text-center">
-          <h2 class="mt0 mb10 probootstrap-animate">Will you attend?</h2>
-          <p>Please sign your RSVP</p>
+          <h2>Info</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="probootstrap-card probootstrap-animate">
-            <form class="probootstrap-form" id="guest_rsvp">
-              <div class="form-group">
-                <label for="invitees">Invitee(s)</label>
-                <input type="text" class="form-control" id="invitees">
+      <ul>
+        <li> After the cerimony, we would like to invite you to celebrate at the close-by 'Parc de Saint Cloud'.
+          We will take the opportunity to shoot some photos and start opening the first bottles. If you do not want
+          to dirty your shoes, we advice to bring a second pair;</li>
+        <li>For those who won't have an available car to get to the party, we are organizing a service for you. We Will
+          keep you posted but please do not forget to specify it in in the RSVP form;</li>
+        <li> Similarly, we are organizing an accomodation for the saturday night after party. As soon as we will have
+          more definitive information, we will update this page;</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="probootstrap-section" data-section="gallery">
+    <div class="container">
+      <div class="row mb40 probootstrap-animate">
+        <div class="col-md-12 text-center">
+          <h2>Gallery</h2>
+        </div>
+      </div>
+
+      <div class="row probootstrap-gutter30">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/dummies_bismarck.jpg" style="background-image: url(img/dummies_bismarck.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_bismarck.jpg" alt="Couple at the origin" class="img-responsive"></div>
+              </a>
+            </div>
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/dummies_bergamo.jpg" style="background-image: url(img/dummies_bergamo.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_bergamo.jpg" alt="couple in bergamo" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-12 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/bretagna_dummies.jpg" style="background-image: url(img/bretagna_dummies.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/bretagna_dummies.jpg" alt="bretagna 2015" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-6">
+              <div class="row probootstrap-gutter30">
+                <div class="col-md-12 probootstrap-animate">
+                  <a class="probootstrap-image image-popup" href="img/dummies_foret.jpg" style="background-image: url(img/dummies_foret.jpg)">
+                    <div class="probootstrap-image-for-popup"><img src="img/dummies_foret.jpg" alt="In the forest" class="img-responsive"></div>
+                  </a>
+                </div>
+                <div class="col-md-12 probootstrap-animate">
+                  <a class="probootstrap-image image-popup" href="img/dummies_blu.jpg" style="background-image: url(img/dummies_blu.jpg)">
+                    <div class="probootstrap-image-for-popup"><img src="img/dummies_blu.jpg" alt="Couple Genes" class="img-responsive"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image  height-2x image-popup" href="img/dummies_vert.jpg" style="background-image: url(img/dummies_vert.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_vert.jpg" alt="Couple in Vertical" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END row -->
+
+      <div class="row probootstrap-gutter30">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-6">
+              <div class="row probootstrap-gutter30">
+                <div class="col-md-12 probootstrap-animate">
+                  <a class="probootstrap-image image-popup" href="img/dummies_paulaner.jpeg" style="background-image: url(img/dummies_paulaner.jpeg)">
+                    <div class="probootstrap-image-for-popup"><img src="img/dummies_paulaner.jpeg" alt="Couple in germany" class="img-responsive"></div>
+                  </a>
+                </div>
+                <div class="col-md-12 probootstrap-animate">
+                  <a class="probootstrap-image image-popup" href="img/dummies_fointanbleu.jpg" style="background-image: url(img/dummies_fointanbleu.jpg)">
+                    <div class="probootstrap-image-for-popup"><img src="img/dummies_fointanbleu.jpg" alt="couple in imperial city" class="img-responsive"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image height-2x image-popup" href="img/dummies_brehat.jpg" style="background-image: url(img/dummies_brehat.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_brehat.jpg" alt="Couple under the wind" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/dummies_pays_macron.jpg" style="background-image: url(img/dummies_pays_macron.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_pays_macron.jpg" alt="Couple at nordic beach" class="img-responsive"></div>
+              </a>
+            </div>
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/lo_stanu.jpg" style="background-image: url(img/lo_stanu.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/lo_stanu.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-12 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/dummies_bayonne.jpg" style="background-image: url(img/dummies_bayonne.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_bayonne.jpg" alt="Couple in Bayonne" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END row -->
+    </div>
+  </section>
+
+  <section data-section="auth-rsvp">
+    <div id="auth" class="probootstrap-section probootstrap-section-colored">
+      <div class="container">
+        <div class="row mb40">
+          <div class="col-md-12 text-center">
+            <h2 class="mt0 mb10 probootstrap-animate">Log In</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="probootstrap-card probootstrap-animate">
+              <form class="probootstrap-form" id="login">
                 <div class="form-group">
-                  <p>Confirm Presence?</p>
-                  <label for="presence-yes"><input type="checkbox" id="presence-yes"> Yes, I will be there</label>
+                  <label for="user_name_auth">User name</label>
+                  <input type="text" class="form-control" id="user_name_auth">
                 </div>
                 <div class="form-group">
-                  <label for="modification">Modifications</label>
-                  <input type="textarea" class="form-control" id="modification">
+                  <label for="password_auth">Password</label>
+                  <input type="password" class="form-control" id="password_auth">
                 </div>
                 <div class="form-group">
-                  <laber for="needs_accomodation">Need accomodation</label>
-                    <input type="checkbox" id="needs_accomodation">
+                  <input type="submit" class="btn btn-primary btn-lg" value="Log In">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="rsvp" class="probootstrap-section probootstrap-section-colored probootstrap-border-top">
+      <div class="container">
+        <div class="row mb40">
+          <div class="col-md-12 text-center">
+            <h2 class="mt0 mb10 probootstrap-animate">Will you attend?</h2>
+            <p>Please sign your RSVP</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="probootstrap-card probootstrap-animate">
+              <form class="probootstrap-form" id="guest_rsvp">
+                <div class="form-group">
+                  <label for="invitees">Invitee(s)</label>
+                  <input type="text" class="form-control" id="invitees">
+                  <div class="form-group">
+                    <p>Confirm Presence?</p>
+                    <label for="presence-yes"><input type="checkbox" id="presence-yes"> Yes, I will be there</label>
+                  </div>
+                  <div class="form-group">
+                    <label for="modification">Modifications</label>
+                    <input type="textarea" class="form-control" id="modification">
+                  </div>
+                  <div class="form-group">
+                    <laber for="needs_accomodation">Need accomodation</label>
+                      <input type="checkbox" id="needs_accomodation">
                   </div>
                   <div class="form-group">
                     <laber for="food-requirements">Food requirements</label>
                       <textarea name="food-requirements" id="food-requirements" cols="20" rows="2" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <input type="submit" class="btn btn-primary btn-lg" value="Send RSVP">
-                    </div>
-                  </form>
-                </div>
-              </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Send RSVP">
+                  </div>
+              </form>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="probootstrap-section probootstrap-section-colored-darker">
-        <div class="container text-center">
-          <div class="row">
-            <div class="col-md-12 probootstrap-animate"><h2 class="mt0">If you're feeling generous</h2></div>
-          </div>
-          We are going to travel to Japan for our honey moon. Any help is warmly welcomed. If possible, we will
-          destinate a part of all the collected gifts to MSF. Here our bank coordinates
-          <div class="row">
+  <section class="probootstrap-section probootstrap-section-colored-darker">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12 probootstrap-animate">
+          <h2 class="mt0">If you're feeling generous</h2>
+        </div>
+      </div>
+      We are going to travel to Japan for our honey moon. Any help is warmly welcomed. At the same time,
+      we know that we are in a priviliged situation and many people are not doing really well in this world (euphimism).
+      If possible, we will destinate a part of all the collected gifts to <a href="https://www.msf.fr/">MSF</a>. <br>
+      Here you can find our bank coordinates:
+      <div class="text-center">
+        Account holder: Madame Prat Cyrielle ou Monsieur Bompani Lorenzo</br>
+        IBAN: FR76 1720 6004 3693 0180 6662 717</br>
+        BIC: AGRIFRPP872</br>
+        RIB: 17206004369301806662717</br>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="contact">
+    <div id="auth" class="probootstrap-section probootstrap-section">
+      <div class="container">
+        <div class="row mb40">
+          <div class="col-md-12 text-center">
+            <h2 class="mt0 mb10 probootstrap-animate">Contact</h2>
           </div>
         </div>
-      </section>
+        For privacy reason, we will not expose our private e-mail address. You can still join us at
+        <a href=@mailto:mailaddress>TODO</a></br>
+        If you need to reach us personally, chanches are that you have already a good address/number. </br>
 
-      <footer class="probootstrap-footer">
-        <div class="container text-center">
-          <div class="row">
-            <div class="col-md-12">
-              &copy; 2017 <a href="https://uicookies.com/">uiCookies:Wedding</a>. All Rights Reserved. Designed &amp; Developed by <a href="https://uicookies.com">uicookies.com</a> <br> Demo Images by <a href="https://unsplash.com">Unsplash</a>
-            </div>
-          </div>
+        The code source of this site (and the whole project) is availabe on <a href="#">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="probootstrap-footer">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12">
+          &copy; 2017 <a href="https://uicookies.com/">uiCookies:Wedding</a>. All Rights Reserved. Designed &amp; Developed by <a href="https://uicookies.com">uicookies.com</a> <br> Demo Images by <a href="https://unsplash.com">Unsplash</a>
         </div>
-      </footer>
+      </div>
+    </div>
+  </footer>
 
 
 
-      <script src="js/scripts.min.js"></script>
-      <script src="js/custom.min.js"></script>
+  <script src="js/scripts.min.js"></script>
+  <script src="js/custom.min.js"></script>
 
-      <!-- Google Map -->
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy6Xs1JZG1kA_MBnFyedCL69T0PUb7Sfk"></script>
-      <script src="js/google-map.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy6Xs1JZG1kA_MBnFyedCL69T0PUb7Sfk"></script>
+  <script src="js/google-map.js"></script>
 
-    </body>
-    </html>
+</body>
+
+</html>

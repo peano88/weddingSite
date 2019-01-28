@@ -27,6 +27,9 @@ tags
 # Persistent undo
 [._]*.un~
 
+#======== MAC =============
+*.DS_Store
+
 #======== DOCKER ==========
 .env
 data

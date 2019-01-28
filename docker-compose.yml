@@ -6,6 +6,7 @@ services:
     volumes:
       - ${PWD}/nginx.conf:/etc/nginx/nginx.conf
       - ${PWD}/index.html:/usr/share/nginx/html/index.html
+      - ${PWD}/index.fr.html:/usr/share/nginx/html/index.fr.html
       - ${PWD}/img:/usr/share/nginx/html/img
       - ${PWD}/css:/usr/share/nginx/html/css
       - ${PWD}/js:/usr/share/nginx/html/js

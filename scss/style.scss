@@ -20,11 +20,11 @@ body {
 }
 // selection
 ::selection {
-  background: $brand-black; 
+  background: $brand-black;
   color: $brand-white;
 }
 ::-moz-selection {
-  background: $brand-black; 
+  background: $brand-black;
   color: $brand-white;
 }
 
@@ -69,7 +69,7 @@ a {
 	border-radius: 0px;
 	margin-bottom: 0px;
 	background: none;
-	
+
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -114,7 +114,7 @@ a {
 	.navbar-toggle.collapsed span:nth-child(3) {
 	  opacity: 1;
 	}
-	
+
 	// nav link padding
 	.parent-nav-link-padding {
 		padding-top: 40px;
@@ -135,7 +135,7 @@ a {
 		text-transform: uppercase;
 	}
 	.dropdown {
-		
+
 		> a {
 			padding-right: 10px!important;
 			position: relative;
@@ -161,7 +161,7 @@ a {
 			}
 			&:hover {
 				&:before {
-					transform: rotate(180deg);	
+					transform: rotate(180deg);
 				}
 			}
 		}
@@ -171,11 +171,11 @@ a {
 				transition: .3s all;
 				@media screen and (max-width: $screen-sm) {
 				}
-				
+
 				&:before {
-					transform: rotate(180deg);	
+					transform: rotate(180deg);
 				}
-				
+
 			}
 		}
 
@@ -198,16 +198,16 @@ a {
 						background: $brand-white;
 					}
 				}
-			
+
 				&.dropdown-submenu {
 					&.open, &:hover, &:focus, &:active {
 						> a {
 							border-top: none;
-							
+
 							&:before {
 								color: $brand-black;
 							}
-							
+
 						}
 					}
 				}
@@ -222,7 +222,7 @@ a {
 	.navbar-right {
     .dropdown-menu {
       right: auto;
-    }  
+    }
   }
 	.dropdown-menu {
 		border: none;
@@ -233,9 +233,9 @@ a {
 
 		min-width: 200px;
 		white-space: normal;
-		word-wrap: break-word; 
+		word-wrap: break-word;
 		a {
-			white-space: normal; 
+			white-space: normal;
 		}
 
 		@media screen and (max-width: $screen-sm) {
@@ -246,7 +246,7 @@ a {
 			}
 		}
 	}
-	
+
 	.navbar-brand {
 		@extend .parent-nav-link-padding;
 		text-transform: uppercase;
@@ -282,7 +282,7 @@ a {
 					padding-top: 8px!important;
 					padding-bottom: 8px!important;
 					color: rgba(0,0,0,.7);
-					
+
 				}
 				&:hover {
 					color: rgba(255,255,255,.7);
@@ -337,10 +337,13 @@ a {
 			}
 		}
 		.dropdown {
+			.navbar-form{
+				padding-top: 22px;
+			}
 			li.active {
 				> a {
 					// color: $brand-white;
-					background: none;
+					//background: none;
 				}
 			}
 		}
@@ -360,7 +363,7 @@ a {
 	    margin-top: -1px;
     }
     > a {
-    	
+
 			display: block;
 			&:before {
 				@include icomoon;
@@ -377,14 +380,14 @@ a {
 					color: rgba(0,0,0,.2);
 				}
 			}
-    	
+
     	&:hover {
-				
+
 				&:before {
 					color: rgba($brand-black, .3);
-					transform: rotate(180deg);	
+					transform: rotate(180deg);
 				}
-				
+
 			}
     }
     @media screen and (max-width: $screen-xs) {
@@ -392,7 +395,7 @@ a {
 				> .dropdown-menu {
 					display: block;
 				}
-    	}	
+    	}
     }
 	}
 	&.scrolled {
@@ -421,7 +424,7 @@ a {
 				}
 			}
 		}
-		
+
 		.navbar-nav {
 			> li {
 				> a {
@@ -445,8 +448,8 @@ a {
 
 // intro text
 .text-intro-wrap {
-	position: absolute; 
-	z-index: 19; 
+	position: absolute;
+	z-index: 19;
 	width: 100%;
 	top: 50%;
 	transform: translateY(-50%);
@@ -589,10 +592,10 @@ a {
 		height: 200px;
 	}
 	.probootstrap-image-for-popup {
-		display: block; 
-		z-index: -1; 
-		position: absolute; 
-		top: 50%; 
+		display: block;
+		z-index: -1;
+		position: absolute;
+		top: 50%;
 		transform: translateY(-50%);
 	}
 }
@@ -624,7 +627,7 @@ a {
 			border: 1px solid $brand-primary;
 		}
 		&:active {
-			
+
 		}
 		&:focus {
 
@@ -653,7 +656,7 @@ a {
 		border-top: 1px solid rgba(0,0,0,.1);
 	}
 	&.probootstrap-border-bottom {
-		border-bottom: 1px solid rgba(0,0,0,.1);	
+		border-bottom: 1px solid rgba(0,0,0,.1);
 	}
 	> .container {
 		&.probootstrap-border-top {
@@ -661,7 +664,7 @@ a {
 			border-top: 1px solid rgba(0,0,0,.1);
 		}
 	}
-	
+
 	&.probootstrap-bg-white {
 		background: $brand-white;
 	}
@@ -673,6 +676,10 @@ a {
 		color: $brand-white;
 		h1, h2, h3 {
 			color: $brand-white;
+		}
+		a {
+			color:$brand-white;
+			text-decoration:underline;
 		}
 		p {
 			color: rgba(255,255,255,.7);
@@ -743,7 +750,7 @@ a {
 	margin-bottom: 0px;
 	label {
 		font-weight: normal;
-	}	
+	}
 	.form-control {
 		height: 46px;
 		box-shadow: none;
@@ -779,7 +786,7 @@ a {
 	}
 	textarea.form-control {
 		height: inherit;
-		resize:vertical; 
+		resize:vertical;
 	}
 }
 
@@ -1047,7 +1054,7 @@ a {
 			border-radius: 4px;
 			overflow: hidden;
 		}
-		
+
 	}
 }
 .owl-carousel .owl-controls,
@@ -1072,12 +1079,12 @@ a {
 .owl-carousel .owl-controls .owl-nav .owl-next,
 .owl-carousel-posts .owl-controls .owl-nav .owl-next {
 	right: 20px;
-	
+
 }
 .owl-carousel .owl-controls .owl-nav .owl-prev,
 .owl-carousel-posts .owl-controls .owl-nav .owl-prev {
 	left: 20px;
-	
+
 }
 
 .owl-carousel-posts .owl-controls .owl-nav .owl-next,
@@ -1089,7 +1096,7 @@ a {
 	}
 	&:hover {
 		i {
-			color: $brand-black;		
+			color: $brand-black;
 		}
 	}
 }
@@ -1129,16 +1136,16 @@ a {
 }
 .owl-theme .owl-dots {
 	position: absolute;
-	bottom: -30px;	
+	bottom: -30px;
 	width: 100%;
 	text-align: center;
 }
 .owl-carousel-fullwidth.owl-theme .owl-dots {
-	bottom: -30px;	
+	bottom: -30px;
 	margin-bottom: -2.5em;
 }
 .owl-work.owl-theme .owl-dots {
-	bottom: -30px;	
+	bottom: -30px;
 	margin-bottom: -2.5em;
 }
 .owl-theme .owl-dots .owl-dot span {
@@ -1190,8 +1197,8 @@ a {
 // magnific popup
 .mfp-fade.mfp-bg {
   opacity: 0;
-  -webkit-transition: all 0.15s ease-out; 
-  -moz-transition: all 0.15s ease-out; 
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
 .mfp-fade.mfp-bg.mfp-ready {
@@ -1203,8 +1210,8 @@ a {
 
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
-  -webkit-transition: all 0.15s ease-out; 
-  -moz-transition: all 0.15s ease-out; 
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
@@ -1226,9 +1233,9 @@ a {
 .mfp-with-zoom.mfp-bg {
 	opacity: 0;
 	-webkit-backface-visibility: hidden;
-	-webkit-transition: all 0.3s ease-out; 
-	-moz-transition: all 0.3s ease-out; 
-	-o-transition: all 0.3s ease-out; 
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
 }
 
@@ -1239,7 +1246,7 @@ a {
 		opacity: 0.8;
 }
 
-.mfp-with-zoom.mfp-removing .mfp-container, 
+.mfp-with-zoom.mfp-removing .mfp-container,
 .mfp-with-zoom.mfp-removing.mfp-bg {
 	opacity: 0;
 }
@@ -1400,4 +1407,3 @@ a {
 		max-width: 100%;
 	}
 }
-
