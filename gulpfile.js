@@ -1,6 +1,6 @@
 /* Needed gulp config */
 
-var gulp = require('gulp');  
+var gulp = require('gulp');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -23,7 +23,8 @@ var paths = {
 gulp.task('scripts', function() {
   return gulp.src([
     /* Add your JS files here, they will be combined in this order */
-    'js/vendor/jquery.min.js',
+    //'js/vendor/jquery.min.js',
+    'js/vendor/jquery2.min.js',
     'js/vendor/jquery.easing.1.3.js',
     'js/vendor/jquery.stellar.min.js',
     'js/vendor/jquery.flexslider-min.js',
@@ -50,7 +51,7 @@ gulp.task('minify-custom', function() {
 });
 
 /* Sass task */
-gulp.task('sass', function () {  
+gulp.task('sass', function () {
     gulp.src('scss/style.scss')
     .pipe(plumber())
     .pipe(sass({
@@ -108,14 +109,14 @@ gulp.task('bs-reload', function () {
 /* Prepare Browser-sync for localhost */
 gulp.task('browser-sync', function() {
     browserSync.init(['css/*.css', 'js/*.js'], {
-        
+
         //proxy: 'localhost/probootstrap/wedding'
         /* For a static server you would use this: */
-        
+
         server: {
             baseDir: './'
         }
-        
+
     });
 });
 

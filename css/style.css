@@ -493,6 +493,10 @@ a:hover, a:focus, a:active {
   }
 }
 
+.probootstrap-navbar .btn-group {
+  padding-top: 22px;
+}
+
 .text-intro-wrap {
   position: absolute;
   z-index: 19;
