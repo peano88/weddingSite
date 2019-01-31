@@ -25,8 +25,24 @@ func logErr(err error) {
 
 func connectToDb() error {
 	var err error
+
+	user := os.Getenv("DB_USER")
+	if user == "" {
+		log.Fatal("No Db user provided")
+	}
+	pwd := os.Getenv("DB_PWD")
+	if pwd == "" {
+		log.Fatal("No Db pwd provided")
+	}
+
+	dbInfo := mgo.DialInfo{
+		Username: user,
+		Password: pwd,
+		Addrs:    []string{"db-api"}, // docker-compose network
+	}
+
 	for i := 0; i < 5; i++ {
-		session, err = mgo.Dial("db-api")
+		session, err = mgo.DialWithInfo(&dbInfo)
 		if err == nil {
 			return nil
 		}
