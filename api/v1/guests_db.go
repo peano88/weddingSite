@@ -20,6 +20,7 @@ type Guest struct {
 	Modification      string        `json:"modification" bson:"modification"`
 	Confirmed         bool          `json:"confirmed" bson:"confirmed"`
 	NeedsAccomodation bool          `json:"needs_accomodation" bson:"needs_accomodation"`
+	NeedsPassage      bool          `json:"needs_passage" bson:"needs_passage"`
 	FoodRequirements  string        `json:"food_requirements" bson:"food_requirements"`
 }
 
@@ -99,6 +100,7 @@ func (db *DataBridge) UpdateGuest(g *Guest) error {
 		"modification":       g.Modification,
 		"confirmed":          g.Confirmed,
 		"needs_accomodation": g.NeedsAccomodation,
+		"needs_passage":      g.NeedsPassage,
 		"food_requirements":  g.FoodRequirements,
 	}})
 }

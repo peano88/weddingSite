@@ -373,6 +373,7 @@
 			$("#modification").val(response.modification)
 			$("#food-requirements").val(response.food_requirements)
 			boolToCheckbox(response.needs_accomodation,"needs_accomodation")
+			boolToCheckbox(response.needs_passage,"needs_passage")
 			boolToCheckbox(response.confirmed,"presence-yes")
 
 
@@ -402,6 +403,7 @@
 		obj["modification"] = $("#modification").val()
 		obj["food_requirements"] = $("#food-requirements").val()
 		obj["needs_accomodation"] = checkboxToBool("needs_accomodation")
+		obj["needs_passage"] = checkboxToBool("needs_passage")
 		obj["confirmed"] = checkboxToBool("presence-yes")
 
 		//Values stored in the local storage

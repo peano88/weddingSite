@@ -56,6 +56,7 @@ func testCreate(t *testing.T, provided *Guest) {
 	assert.Equal(provided.NeedsAccomodation, g.NeedsAccomodation, "check accomodation")
 	assert.Equal(provided.Modification, g.Modification, "check modification")
 	assert.Equal(provided.FoodRequirements, g.FoodRequirements, "check food requirements")
+	assert.Equal(provided.NeedsPassage, g.NeedsPassage, "check passage")
 }
 
 func testRead(t *testing.T, provided *Guest) {
@@ -80,6 +81,7 @@ func testRead(t *testing.T, provided *Guest) {
 	assert.Equal(provided.Modification, g.Modification, "wrong modification")
 	assert.Equal(provided.Confirmed, g.Confirmed, "wrong confirmed")
 	assert.Equal(provided.NeedsAccomodation, g.NeedsAccomodation, "wrong needsAccomodation")
+	assert.Equal(provided.NeedsPassage, g.NeedsPassage, "wrong need passage")
 
 }
 
@@ -147,6 +149,7 @@ func testUpdate(t *testing.T, provided *Guest) {
 	stored.Confirmed = false
 	stored.Modification = "Mum is coming"
 	stored.NeedsAccomodation = false
+	stored.NeedsPassage = true
 	stored.FoodRequirements = "Mum is vegetarian"
 
 	// Create the PUT request

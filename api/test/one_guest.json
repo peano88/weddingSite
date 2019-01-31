@@ -8,5 +8,6 @@
   "modification": "Buck not coming",
   "confirmed" : true,
   "needs_accomodation": true,
+  "needs_passage": false,
   "food_requirements": "Stephen is vegetarian"
 }
