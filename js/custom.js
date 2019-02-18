@@ -364,7 +364,7 @@
 				"Accept": "text/json"
 			},
 			//dataType: 'jsonp',
-			url: "http://www.easyWedCL.tk:8090/api/guests?user_name=" + user  , // reverse proxy from nginx
+			url: "https://www.easywedcl.tk/api/guests?user_name=" + user  , // reverse proxy from nginx
 		}).done(function(response) {
 
 			// Invitees is read only
@@ -438,7 +438,7 @@
 					"Accept": "text/json"
 				},
 				//dataType: 'jsonp',
-				url: "http://www.easyWedCL.tk:8090/api/guests/" + id  , // reverse proxy from nginx
+				url: "https://www.easyWedCL.tk/api/guests/" + id  , // reverse proxy from nginx
 				data: json
 			}).done(function(response) {
 				console.log(response);
@@ -456,7 +456,7 @@
 			var json = toJSONStringAuth();
 			$.ajax({
 				type: 'POST',
-				url: "http://www.easyWedCL.tk:8090/api/auth",
+				url: "https://www.easyWedCL.tk/api/auth",
 				data: json
 			}).done(function(response) {
 				//Sets value in local storage
