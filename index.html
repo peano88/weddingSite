@@ -276,7 +276,8 @@
               <form class="probootstrap-form" id="login">
                 <div class="form-group">
                   <label for="user_name_auth">User name</label>
-                  <input type="text" class="form-control" id="user_name_auth">
+                  <input type="text" class="form-control" id="user_name_auth" aria-describedby="helpUser">
+                  <span class="help-block" id="helpUser">User and Password are provided within your invitation</span>
                 </div>
                 <div class="form-group">
                   <label for="password_auth">Password</label>
@@ -313,7 +314,8 @@
                   </div>
                   <div class="form-group">
                     <label for="modification">Modifications</label>
-                    <input type="textarea" class="form-control" id="modification">
+                    <input type="textarea" class="form-control" id="modification" aria-describedby="helpMod">
+                    <span id="helpMod" class="help-block">Put here all the required modification tou your invitation, such as if your +1 is coming or not</span>
                   </div>
                   <div class="form-group">
                     <laber for="needs_passage">No car available</label>
@@ -321,11 +323,12 @@
                   </div>
                   <div class="form-group">
                     <laber for="needs_accomodation">Need accomodation</label>
-                      <input type="checkbox" id="needs_accomodation">
+                      <input type="checkbox" id="needs_accomodation" >
                   </div>
                   <div class="form-group">
                     <laber for="food-requirements">Food requirements</label>
-                      <textarea name="food-requirements" id="food-requirements" cols="20" rows="2" class="form-control"></textarea>
+                      <textarea name="food-requirements" id="food-requirements" cols="20" rows="2" class="form-control" aria-describedby="helpFood"></textarea>
+                      <span id="helpFood" class="help-block">Put here if you (or your +1) have special food requirements e.g. veggie, vegan, gluten-free</span>
                   </div>
                   <div class="form-group">
                     <input type="submit" class="btn btn-primary btn-lg" value="Send RSVP">
