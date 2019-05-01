@@ -19,5 +19,380 @@
 </head>
 
 <body>
-  <h2>On va arriver</h2>
+  <!-- Fixed navbar -->
+  <!-- navbar-fixed-top -->
+  <nav class="navbar navbar-default probootstrap-navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html" title="Cyrielle e Lorenzo">Cyrielle <em>&amp;</em> Lorenzo</a>
+      </div>
+
+      <div id="navbar-collapse" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#" data-nav-section="home">Accueil</a></li>
+          <!--<li><a href="#" data-nav-section="groom-bride">Groom &amp; Bride</a></li>-->
+          <li><a href="#" data-nav-section="when-where">Où &amp; Quand</a></li>
+          <li><a href="#" data-nav-section="information">Info</a></li>
+          <li><a href="#" data-nav-section="gallery">Galerie</a></li>
+          <li><a href="#" data-nav-section="auth-rsvp">RSVP</a></li>
+          <li><a href="#" data-nav-section="contact">Contact</a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+          <div class="btn-group">
+            <a href="index.it.htm" class="btn-sm" role="button"><img src="img/it.png"> IT</a>
+            <a href="index.html" class="btn-sm" role="button"><img src="img/en.png"> EN</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="flexslider" data-section="home">
+    <div class="container text-intro-wrap">
+      <div class="row">
+        <div class="col-md-12 text-center text-intro probootstrap-animate">
+          <h1>Cyrielle <em>&amp;</em> Lorenzo</h1>
+          <h2>se marient le 21 septembre 2019 &mdash; Saint Cloud, FR</h2>
+        </div>
+      </div>
+    </div>
+    <ul class="slides">
+      <li style="background-image: url(img/como.jpg)" data></li>
+      <li style="background-image: url(img/brehat1.jpg)"></li>
+      <li style="background-image: url(img/paris.jpg)"></li>
+    </ul>
+  </section>
+
+  <section class="probootstrap-section probootstrap-section-colored probootstrap-wedding-countdown">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center probootstrap-animate">
+          <h4>Le mariage aura lieu dans</h4>
+        </div>
+        <div class="col-md-12 probootstrap-animate">
+          <div class="date-countdown"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="probootstrap-section probootstrap-bg" data-section="groom-bride">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 probootstrap-groom-bride">
+
+          <div class="probootstrap-groom probootstrap-animate">
+            <figure>
+              <img src="img/isposoGiusto.jpg" alt="the Beast" class="img-responsive">
+            </figure>
+            <span class="probootstrap-caption">Le marié</span>
+            <h2 class="text-center">Lorenzo</h2>
+          </div>
+
+          <div class="probootstrap-divider probootstrap-animate"><span>&amp;</span></div>
+
+          <div class="probootstrap-bride probootstrap-animate">
+            <figure>
+              <img src="img/dumma5.jpg" alt="the Beauty" class="img-responsive">
+            </figure>
+            <span class="probootstrap-caption">La mariée</span>
+            <h2 class="text-center">Cyrielle</h2>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="probootstrap-section probootstrap-section-colored" data-section="when-where">
+    <div class="container">
+      <div class="row mb40 text-center">
+        <div class="col-md-12 probootstrap-animate">
+          <h2 class="mt0">Où &amp; Quand</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 probootstrap-animate">
+          <p><img src="img/SaintCloud.jpg" alt="Marie de Saint Cloud" class="img-responsive img-rounded"></p>
+          <h3>La cérémonie</h3>
+          <p>La cérémonie de mariage civil aura lieu à la Mairie de Saint Cloud à 14 heures.</p>
+
+        </div>
+        <div class="col-md-6 probootstrap-animate">
+          <p><img src="img/ferme_colombier1.jpg" alt="les baloons de lyon" class="img-responsive img-rounded"></p>
+          <h3>La réception</h3>
+          <p>La réception, incluant vin d'honneur et diner, se tiendra à partir de 18 heures 30 à la Ferme au Colombier, 2 rue d'Ormoy à Néron (28210)
+            <a href="http://ferme-au-colombier.com/">Ferme au colombier</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="map"></div>
+
+  <section class="probootstrap-section probootstrap-section-colored-darker" data-section="information">
+    <div class="container">
+      <div class="row mb40 probootstrap-animate">
+        <div class="col-md-12 text-center">
+          <h2>Information</h2>
+        </div>
+      </div>
+      <ul>
+        <li>Après la cérémonie, et si le temps le permet, nous aimerions vous retrouver au Parc de Saint Cloud pour prendre quelques photos et ouvrir les premières bouteilles. Si vous ne voulez pas salir vos chaussures, pensez à apporter une seconde paire!
+        <li>Pour ceux qui n'ont pas de voiture, nous mettrons en place un service de navettes de la mairie jusqu'au lieu de réception. En cas de besoin, précisez-le lors de votre réservation.</li>
+        <li>Nous organiserons également l'hébergement de ceux qui le souhaitent pour la nuit de samedi à dimanche. Dès que nous aurons plus d'informations, nous mettrons cette page à jour.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="probootstrap-section" data-section="gallery">
+    <div class="container">
+      <div class="row mb40 probootstrap-animate">
+        <div class="col-md-12 text-center">
+          <h2>Galerie</h2>
+        </div>
+      </div>
+
+      <div class="row probootstrap-gutter30">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/dummies_bismarck.jpg" style="background-image: url(img/dummies_bismarck.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_bismarck.jpg" alt="Couple at the origin" class="img-responsive"></div>
+              </a>
+            </div>
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/dummies_bergamo.jpg" style="background-image: url(img/dummies_bergamo.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_bergamo.jpg" alt="couple in bergamo" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-12 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/bretagna_dummies.jpg" style="background-image: url(img/bretagna_dummies.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/bretagna_dummies.jpg" alt="bretagna 2015" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-6">
+              <div class="row probootstrap-gutter30">
+                <div class="col-md-12 probootstrap-animate">
+                  <a class="probootstrap-image image-popup" href="img/dummies_foret.jpg" style="background-image: url(img/dummies_foret.jpg)">
+                    <div class="probootstrap-image-for-popup"><img src="img/dummies_foret.jpg" alt="In the forest" class="img-responsive"></div>
+                  </a>
+                </div>
+                <div class="col-md-12 probootstrap-animate">
+                  <a class="probootstrap-image image-popup" href="img/dummies_blu.jpg" style="background-image: url(img/dummies_blu.jpg)">
+                    <div class="probootstrap-image-for-popup"><img src="img/dummies_blu.jpg" alt="Couple Genes" class="img-responsive"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image  height-2x image-popup" href="img/dummies_vert.jpg" style="background-image: url(img/dummies_vert.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_vert.jpg" alt="Couple in Vertical" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END row -->
+
+      <div class="row probootstrap-gutter30">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-6">
+              <div class="row probootstrap-gutter30">
+                <div class="col-md-12 probootstrap-animate">
+                  <a class="probootstrap-image image-popup" href="img/dummies_paulaner.jpeg" style="background-image: url(img/dummies_paulaner.jpeg)">
+                    <div class="probootstrap-image-for-popup"><img src="img/dummies_paulaner.jpeg" alt="Couple in germany" class="img-responsive"></div>
+                  </a>
+                </div>
+                <div class="col-md-12 probootstrap-animate">
+                  <a class="probootstrap-image image-popup" href="img/dummies_fointanbleu.jpg" style="background-image: url(img/dummies_fointanbleu.jpg)">
+                    <div class="probootstrap-image-for-popup"><img src="img/dummies_fointanbleu.jpg" alt="couple in imperial city" class="img-responsive"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image height-2x image-popup" href="img/dummies_brehat.jpg" style="background-image: url(img/dummies_brehat.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_brehat.jpg" alt="Couple under the wind" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/dummies_pays_macron.jpg" style="background-image: url(img/dummies_pays_macron.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_pays_macron.jpg" alt="Couple at nordic beach" class="img-responsive"></div>
+              </a>
+            </div>
+            <div class="col-md-6 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/lo_stanu.jpg" style="background-image: url(img/lo_stanu.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/lo_stanu.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+          <div class="row probootstrap-gutter30">
+            <div class="col-md-12 probootstrap-animate">
+              <a class="probootstrap-image image-popup" href="img/dummies_bayonne.jpg" style="background-image: url(img/dummies_bayonne.jpg)">
+                <div class="probootstrap-image-for-popup"><img src="img/dummies_bayonne.jpg" alt="Couple in Bayonne" class="img-responsive"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END row -->
+    </div>
+  </section>
+
+  <section data-section="auth-rsvp">
+    <div id="auth" class="probootstrap-section probootstrap-section-colored">
+      <div class="container">
+        <div class="row mb40">
+          <div class="col-md-12 text-center">
+            <h2 class="mt0 mb10 probootstrap-animate">Log In</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="probootstrap-card probootstrap-animate">
+              <form class="probootstrap-form" id="login">
+                <div class="form-group">
+                  <label for="user_name_auth">Nom d'utilisateur</label>
+                  <input type="text" class="form-control" id="user_name_auth" aria-describedby="helpUser">
+                  <span class="help-block" id="helpUser">Votre nom d'utilisateur et votre mot de passe sont joints à votre invitation.</span>
+                </div>
+                <div class="form-group">
+                  <label for="password_auth">Mot de passe</label>
+                  <input type="password" class="form-control" id="password_auth">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary btn-lg" value="Log In">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="rsvp" class="probootstrap-section probootstrap-section-colored probootstrap-border-top">
+      <div class="container">
+        <div class="row mb40">
+          <div class="col-md-12 text-center">
+            <h2 class="mt0 mb10 probootstrap-animate">Nous rejoindrez-vous?</h2>
+            <p>Merci de confirmer votre présence</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="probootstrap-card probootstrap-animate">
+              <form class="probootstrap-form" id="guest_rsvp">
+                <div class="form-group">
+                  <label for="invitees">Invité(s)</label>
+                  <input type="text" class="form-control" id="invitees">
+                  <div class="form-group">
+                    <p>Présence?</p>
+                    <label for="presence-yes"><input type="checkbox" id="presence-yes"> Oui,je serai là!</label>
+                  </div>
+                  <div class="form-group">
+                    <label for="modification">Modifications</label>
+                    <input type="textarea" class="form-control" id="modification" aria-describedby="helpMod">
+                    <span id="helpMod" class="help-block">Indiquez ici les modifications à votre invitation, notamment si vous viendrez seul ou accompagné/span>
+                  </div>
+                  <div class="form-group">
+                    <laber for="needs_passage">Pas de voiture</label>
+                      <input type="checkbox" id="needs_passage">
+                  </div>
+                  <div class="form-group">
+                    <laber for="needs_accomodation">Besoin d'un hébergement pour la nuit</label>
+                      <input type="checkbox" id="needs_accomodation" >
+                  </div>
+                  <div class="form-group">
+                    <laber for="food-requirements">Préferences alimentaires et allergies</label>
+                      <textarea name="food-requirements" id="food-requirements" cols="20" rows="2" class="form-control" aria-describedby="helpFood"></textarea>
+                      <span id="helpFood" class="help-block">Indiquez ici vos régimes alimentaires particuliers (végétarien, végétalien, sans gluten etc.)</span>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Envoyer RSVP">
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="probootstrap-section probootstrap-section-colored-darker">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12 probootstrap-animate">
+          <h2 class="mt0">Si vous avez l'âme généreuse</h2>
+        </div>
+      </div>
+      Nous prévoyons de partir en voyage de noces au Japon. Toute aide pour accomplir ce beau voyage sera la bienvenue! </br>
+
+      Nous sommes toutefois conscients que nous sommes privilégiés par rapport à
+      de nombreuses personnes à travers le monde. C'est pourquoi nous avons décidé d'adresser une partie des dons récoltés à
+       <a href="https://www.msf.fr/">MSF</a>. <br />
+      Voici nos coordonnées bancaires:<br />
+    <br />
+      <div class="text-center">
+        Titulaire: Madame Prat Cyrielle ou Monsieur Bompani Lorenzo</br>
+        IBAN: FR76 1720 6004 3693 0180 6662 717</br>
+        BIC: AGRIFRPP872</br>
+        RIB: 17206004369301806662717</br>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="contact">
+    <div id="auth" class="probootstrap-section probootstrap-section">
+      <div class="container">
+        <div class="row mb40">
+          <div class="col-md-12 text-center">
+            <h2 class="mt0 mb10 probootstrap-animate">Contact</h2>
+          </div>
+        </div>
+        Vous pouvez nous contacter sur
+        <a href=@mailto:easywedcl@gmail.com>easywedcl</a></br>
+        Si vous avez besoin de nous contacter directement, vous avez aussi nos numéros :) </br>
+
+        Le code source de ce site (et tous le projet) est disponible sur <a href="https://github.com/peano88/weddingSite">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="probootstrap-footer">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12">
+          &copy; 2017 <a href="https://uicookies.com/">uiCookies:Wedding</a>. All Rights Reserved. Designed &amp; Developed by <a href="https://uicookies.com">uicookies.com</a> <br> Demo Images by <a href="https://unsplash.com">Unsplash</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="js/scripts.min.js"></script>
+  <script src="js/custom.min.js"></script>
+
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy6Xs1JZG1kA_MBnFyedCL69T0PUb7Sfk"></script>
+  <script src="js/google-map.js"></script>
+
 </body>
