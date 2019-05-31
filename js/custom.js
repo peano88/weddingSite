@@ -448,8 +448,9 @@
         .modal({ backdrop: 'static', keyboard: false })
         .one('click', '#close-confirm', function (e) {
             //nothing to do, just close the popup
-						*/
+
         });
+				*/
 			})
 
 		});
