@@ -442,11 +442,13 @@
 				data: json
 			}).done(function(response) {
 				console.log(response);
+				/*
 				// display the confirm popup
 				$('#confirm-rsvp')
         .modal({ backdrop: 'static', keyboard: false })
         .one('click', '#close-confirm', function (e) {
             //nothing to do, just close the popup
+						*/
         });
 			})
 
