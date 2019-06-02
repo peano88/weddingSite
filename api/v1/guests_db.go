@@ -106,7 +106,7 @@ func (db *DataBridge) UpdateGuest(g *Guest) error {
 }
 
 func sanitizeUserName(username string) bool {
-	re := regexp.MustCompile("^[a-z]+$") // username are fixed and can't be changed
+	re := regexp.MustCompile("^[a-zA-Z]+$") // username are fixed and can't be changed
 	return re.MatchString(username)
 }
 
