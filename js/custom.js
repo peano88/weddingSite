@@ -449,7 +449,7 @@
 					case "FR":
 					alert("Merci d'avoir confirmé votre RSVP");
 					break;
-					case "EN":
+					default:
 					alert("Thanks for having confirmed your RSVP");
 				}
 
@@ -478,7 +478,7 @@
 				localStorage.setItem("dummies_mariage_jwt",response.jwt_token)
 				location.reload(true)
 			}).fail(function(jqXHR, textStatus, errorThrown) {
-				alert(jqXHR.responseText)
+				alert("Log In error")
 			})
 		});
 	};
