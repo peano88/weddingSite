@@ -442,6 +442,18 @@
 				data: json
 			}).done(function(response) {
 				console.log(response);
+				switch (response.language) {
+					case "IT":
+					alert("Grazie per aver confermato l'RSVP")
+					break
+					case "FR":
+					alert("Merci d'avoir confirmé votre RSVP")
+					break
+					case "EN":
+					alert("Thanks for having confirmed your RSVP")
+					break
+				}
+
 				/*
 				// display the confirm popup
 				$('#confirm-rsvp')
@@ -451,6 +463,8 @@
 
         });
 				*/
+			}).fail(function(response,textStatus,errorThrown) {
+				alert(jqXHR.responseText)
 			})
 
 		});
@@ -473,7 +487,9 @@
 				localStorage.setItem("dummies_mariage_id",response.id)
 				localStorage.setItem("dummies_mariage_jwt",response.jwt_token)
 				location.reload(true)
-			})
+			}).fail(function((jqXHR, textStatus, errorThrown) {
+				alert(jqXHR.responseText)
+			}))
 		});
 	};
 	document.addEventListener("DOMContentLoaded", submitLogin);
